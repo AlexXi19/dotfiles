@@ -1,4 +1,10 @@
 # Pulls and updates all the dot files into this repo 
+
+# Bash scripts 
+mkdir -p .local/scripts
+rsync -a ~/.local/scripts/ .local/scripts/
+
+# Configurations
 mkdir -p .config
 cd .config
 
@@ -14,10 +20,6 @@ rsync -a ~/.oh-my-zsh/custom/ zsh/oh-my-zsh/custom/ --exclude=.git/
 mkdir -p tmux 
 cp ~/.tmux.conf tmux/.tmux.conf
 
-# Bash scripts 
-mkdir -p .local/scripts
-rsync -a ~/.local/scripts/ .local/scripts/
-
 # Karabiner 
 mkdir -p karabiner
 rsync -a ~/.config/karabiner/ karabiner/ --exclude=automatic_backups/
@@ -29,3 +31,4 @@ rsync -a ~/.config/iTerm2-preference/ iTerm2/
 # Neovim 
 mkdir -p nvim 
 rsync -a ~/.config/nvim/ nvim/
+
