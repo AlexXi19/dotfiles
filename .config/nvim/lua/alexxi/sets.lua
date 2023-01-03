@@ -30,5 +30,12 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "0"
 
 vim.diagnostic.config({
-  virtual_text = true, -- Turn off inline diagnostics
+  virtual_text = true,
+  signs=true,
 })
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = true
+    }
+)

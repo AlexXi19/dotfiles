@@ -19,7 +19,7 @@ require('Comment').setup({
 })
 
 require("catppuccin").setup({
-    flavour = "mocha", -- latte, frappe, macchiato, mocha
+    flavour = "frappe", -- latte, frappe, macchiato, mocha
     transparent_background = true,
     term_colors = false,
     dim_inactive = {

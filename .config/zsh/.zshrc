@@ -57,6 +57,7 @@ alias tn="tmux new -t"
 alias tl='tmux list-sessions'
 alias ll='ls -l -a'
 alias zshconfig="nvim ~/.zshrc"
+alias ide="nvim ." 
 
 eval "$(thefuck --alias)"
 eval "$(jump shell)"
