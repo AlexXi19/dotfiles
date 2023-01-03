@@ -21,11 +21,36 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	-- use ({ 'projekt0n/github-nvim-theme' })
+    use({
+        'projekt0n/github-nvim-theme',
+        -- config = function()
+        --     require('github-theme').setup({
+        --         theme_style="dark_default",
+        --         transparent=true
+        --     })
+        -- end
+    })
 
 	use { "catppuccin/nvim", as = "catppuccin" }
 
-	use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
+    use { "folke/tokyonight.nvim",
+    config=function()
+        require("tokyonight").setup({
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+            transparent = true, -- Enable this to disable setting the background color
+            styles = {
+                sidebars = "transparent",
+                floats = "transparent",
+            },
+            dim_inactive = true
+        })
+    end
+}
+
+
+use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
 
 	use('theprimeagen/harpoon')
 

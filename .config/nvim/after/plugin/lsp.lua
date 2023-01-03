@@ -34,11 +34,17 @@ lsp.on_attach(function(client, bufnr)
         virtual_text = true
     }
     )
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false
+
+    require'lspconfig'.sumneko_lua.setup {
+        -- ... other configs
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { 'vim' }
+                }
+            }
+        }
     }
-    )
 
 end)
 

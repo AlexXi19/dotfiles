@@ -1,6 +1,5 @@
 require("alexxi.packer")
 require("alexxi.sets")
-require("alexxi.theme")
 
 require('Comment').setup()
 
@@ -14,3 +13,5 @@ require("nvim-tree").setup()
 
 
 require("alexxi.keymaps")
+
+
