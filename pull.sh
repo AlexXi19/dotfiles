@@ -1,4 +1,6 @@
 # Pulls and updates all the dot files into this repo 
+mkdir -p .config
+cd .config
 
 # .zshrc
 mkdir -p zsh

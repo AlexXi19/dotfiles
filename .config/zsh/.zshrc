@@ -54,6 +54,7 @@ alias ta="tmux attach -t"
 alias td="tmux kill-session -t"
 alias tn="tmux new -t"
 alias tl='tmux list-sessions'
+alias ll='ls -l -a'
 alias zshconfig="nvim ~/.zshrc"
 
 eval "$(thefuck --alias)"
