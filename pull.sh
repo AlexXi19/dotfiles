@@ -4,17 +4,16 @@
 mkdir -p .local/scripts
 rsync -a ~/.local/scripts/ .local/scripts/
 
+# Themes and custom plugins 
+mkdir -p .oh-my-zsh
+rsync -a ~/.oh-my-zsh/custom/ .oh-my-zsh/custom/ --exclude=.git/
+
 # Configurations
 mkdir -p .config
 cd .config
 
 # .zshrc
-mkdir -p zsh
-cp ~/.zshrc zsh/.zshrc
-
-# Themes and custom plugins 
-mkdir -p zsh/oh-my-zsh/custom
-rsync -a ~/.oh-my-zsh/custom/ zsh/oh-my-zsh/custom/ --exclude=.git/
+cp ~/.zshrc .zshrc
 
 # Tmux
 mkdir -p tmux 
