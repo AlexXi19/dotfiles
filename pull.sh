@@ -13,6 +13,9 @@ mkdir -p tmux
 cp ~/.tmux.conf tmux/.tmux.conf
 
 # Bash scripts 
-
 mkdir -p .local/scripts
 rsync -a ~/.local/scripts/ .local/scripts/
+
+# Karabiner 
+mkdir -p karabiner
+rsync -a ~/.config/karabiner/ karabiner/ --exclude=automatic_backups/
