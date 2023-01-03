@@ -19,3 +19,11 @@ rsync -a ~/.local/scripts/ .local/scripts/
 # Karabiner 
 mkdir -p karabiner
 rsync -a ~/.config/karabiner/ karabiner/ --exclude=automatic_backups/
+
+# iTerm2 
+mkdir -p iTerm2
+rsync -a ~/.config/iTerm2-preference/ iTerm2/
+
+# Neovim 
+mkdir -p nvim 
+rsync -a ~/.config/nvim/ nvim/
