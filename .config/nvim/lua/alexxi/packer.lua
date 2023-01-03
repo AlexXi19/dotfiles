@@ -18,7 +18,6 @@ return require('packer').startup(function(use)
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
@@ -54,8 +53,18 @@ return require('packer').startup(function(use)
 		}
 	}
 
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
+    use { 'xiyaowong/nvim-transparent' }
 
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
+    use {'nvim-tree/nvim-tree.lua'}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
