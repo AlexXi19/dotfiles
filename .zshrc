@@ -48,7 +48,7 @@ bindkey -s ^f "tmux-sessionizer-full\n"
 KEYTIMEOUT=5
 
 alias k="kubectl"
-alias envd="~/Desktop/CS/envd/envd/bin/envd"
+alias envd="~/Desktop/CS/envd/bin/envd"
 alias l="ls -CF"
 alias t='tmux attach || tmux new-session'
 alias ta="tmux attach -t"

@@ -28,5 +28,4 @@ rsync -a ~/.config/iTerm2-preference/ iTerm2/
 
 # Neovim 
 mkdir -p nvim 
-rsync -a ~/.config/nvim/ nvim/
-
+rsync -a ~/.config/nvim/ nvim/ --exclude=pack/
