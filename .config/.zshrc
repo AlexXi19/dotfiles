@@ -44,7 +44,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^f "tmux-sessionizer-full\n"
 KEYTIMEOUT=5
 
 alias k="kubectl"
@@ -55,6 +55,7 @@ alias ta="tmux attach -t"
 alias td="tmux kill-session -t"
 alias tn="tmux new -t"
 alias tl='tmux list-sessions'
+alias ts='tmux-switch-sessions'
 alias ll='ls -l -a'
 alias zshconfig="nvim ~/.zshrc"
 alias ide="nvim ." 
