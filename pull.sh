@@ -8,16 +8,15 @@ rsync -a ~/.local/scripts/ .local/scripts/
 mkdir -p .oh-my-zsh
 rsync -a ~/.oh-my-zsh/custom/ .oh-my-zsh/custom/ --exclude=.git/
 
-# Configurations
-mkdir -p .config
-cd .config
-
 # .zshrc
 cp ~/.zshrc .zshrc
 
 # Tmux
-mkdir -p tmux 
-cp ~/.tmux.conf tmux/.tmux.conf
+cp ~/.tmux.conf .tmux.conf
+
+# Configurations
+mkdir -p .config
+cd .config
 
 # Karabiner 
 mkdir -p karabiner
