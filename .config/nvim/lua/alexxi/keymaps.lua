@@ -44,6 +44,7 @@ vim.keymap.set("n", "<leader>fd", ":NvimTreeToggle  \n")
 -- Git branch diff 
 vim.keymap.set("n", "<leader>gd", ":DiffviewOpen  \n")
 vim.keymap.set("n", "z", "zz")
+vim.keymap.set("i", "<Tab>", "<Tab>")
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("C", "tabclose", {})
 
