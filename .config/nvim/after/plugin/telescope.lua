@@ -5,9 +5,8 @@ vim.keymap.set('n', '<C-G>', require('telescope.builtin').live_grep, { desc = '[
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sp', require('telescope.builtin').git_files, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>qw', require('telescope.builtin').oldfiles, { desc = '[G]et [R]eferences' })
-
--- Telescope get reference 
 vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = '[G]et [R]eferences' })
+vim.keymap.set('n', '<C-t>', require('telescope.builtin').lsp_workspace_symbols, {})
 
 
 -- vim.keymap.set('n', '<C-p>', builtin.git_files, {})

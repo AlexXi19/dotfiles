@@ -41,13 +41,25 @@ vim.keymap.set("n", "<leader>fd", ":NvimTreeToggle \n")
 -- Git branch diff
 vim.keymap.set("n", "<leader>gd", ":DiffviewOpen \n")
 vim.keymap.set("n", "z", "zz")
-vim.keymap.set("i", "<Tab>", "<Tab>")
-vim.api.nvim_create_user_command("W", "w", {})
-vim.api.nvim_create_user_command("C", "tabclose", {})
 
+-- Close/Save Commands
+vim.api.nvim_create_user_command("W", "w", {})
+vim.api.nvim_create_user_command("X", "x", {})
+vim.api.nvim_create_user_command("Q", "q", {})
+vim.keymap.set("n", "<C-z>", ":xa \n")
+vim.keymap.set("n", "<C-c>", ":q \n")
+vim.keymap.set("n", "<C-x>", ":x \n")
+vim.keymap.set("n", "<C-s>", ":w \n")
 
 -- Exit
 vim.keymap.set("n", "<C-z>", ":xa \n")
 
 -- Prev file
-vim.keymap.set("n", "<C-t>", "<C-^>")
+vim.keymap.set("n", "<C-q>", "<C-^>")
+
+-- Save actions
+
+-- Pane movement
+vim.keymap.set("n", "<C-n>", "<C-w><C-w>")
+vim.keymap.set("n", "<leader>-h", "<C-w>h")
+vim.keymap.set("n", "<leader>-l", "<C-w>l")
