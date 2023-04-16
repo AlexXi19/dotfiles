@@ -1,36 +1,36 @@
 -- vim.cmd.colorscheme "catppuccin"
-vim.cmd[[colorscheme tokyonight]]
+-- vim.cmd[[colorscheme tokyonight]]
+--
+-- require("tokyonight").setup({
+--     -- your configuration comes here
+--     -- or leave it empty to use the default settings
+--     style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+--     transparent = true, -- Enable this to disable setting the background color
+--     styles = {
+--         sidebars = "transparent",
+--         floats = "transparent",
+--     },
+--     dim_inactive = true
+-- })
 
-require("tokyonight").setup({
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-    transparent = true, -- Enable this to disable setting the background color
-    styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-    },
-    dim_inactive = true
-})
-
-require("transparent").setup({
-  enable = true, -- boolean: enable transparent
-  extra_groups = { -- table/string: additional groups that should be cleared
-    -- In particular, when you set it to 'all', that means all available groups
-     "all"
-  },
-  exclude = {}, -- table: groups you don't want to clear
-})
+-- require("transparent").setup({
+--   enable = true, -- boolean: enable transparent
+--   extra_groups = { -- table/string: additional groups that should be cleared
+--     -- In particular, when you set it to 'all', that means all available groups
+--      "all"
+--   },
+--   exclude = {}, -- table: groups you don't want to clear
+-- })
 
 
-require('Comment').setup({
-    toggler = {
-        ---Line-comment toggle keymap
-        --- line = '<C-/>',
-        ---Block-comment toggle keymap
-        -- block = '<C-/>',
-    },
-})
+-- require('Comment').setup({
+--     toggler = {
+--         ---Line-comment toggle keymap
+--         line = '<C-/>',
+--         ---Block-comment toggle keymap
+--         block = '<C-/>',
+--     },
+-- })
 
 -- require('github-theme').setup({
 --     theme_style="dark_default",

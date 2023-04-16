@@ -42,7 +42,7 @@ lsp.on_attach(function(client, bufnr)
     }
     )
 
-    require 'lspconfig'.sumneko_lua.setup {
+    require 'lspconfig'.lua_ls.setup {
         -- ... other configs
         settings = {
             Lua = {

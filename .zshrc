@@ -10,6 +10,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source /Users/alexxi/.gvm/scripts/gvm
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -59,9 +60,11 @@ alias ts='tmux-switch-sessions'
 alias ll='ls -l -a'
 alias zshconfig="nvim ~/.zshrc"
 alias ide="nvim ." 
+alias pip="pip3"
 
 eval "$(thefuck --alias)"
 eval "$(jump shell)"
 #eval "$(starship init zsh)"
 
 export VI_MODE_SET_CURSOR=true
+export PATH="/Users/alexxi/.cosmo/bin:${PATH}"

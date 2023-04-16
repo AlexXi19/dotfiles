@@ -1,82 +1,91 @@
 vim.cmd [[packadd packer.nvim]]
 
 local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-		vim.cmd [[packadd packer.nvim]]
-		return true
-	end
-	return false
+    local fn = vim.fn
+    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+    return false
 end
 
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'
 
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        requires = { { 'nvim-lua/plenary.nvim' } },
+        config = function()
+            require('telescope').setup {
+                defaults = {
+                    file_ignore_patterns = { "node_modules/*", ".git/*", "build/*", "dist/*" },
+                },
+            }
+        end,
+    }
 
     use({
-        'projekt0n/github-nvim-theme',
-        -- config = function()
-        --     require('github-theme').setup({
-        --         theme_style="dark_default",
-        --         transparent=true
-        --     })
-        -- end
+        'projekt0n/github-nvim-theme', tag = 'v0.0.7',
+        -- or                            branch = '0.0.x'
+        config = function()
+            require('github-theme').setup({
+                -- ...
+            })
+
+            vim.cmd('colorscheme github_dark_default')
+        end
     })
 
-	use { "catppuccin/nvim", as = "catppuccin" }
+    -- use { "catppuccin/nvim", as = "catppuccin" }
 
-    use { "folke/tokyonight.nvim",
-    config=function()
-        require("tokyonight").setup({
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-            transparent = true, -- Enable this to disable setting the background color
-            styles = {
-                sidebars = "transparent",
-                floats = "transparent",
-            },
-            dim_inactive = true
-        })
-    end
-}
+    -- use { "folke/tokyonight.nvim",
+    -- config=function()
+    --     require("tokyonight").setup({
+    --         -- your configuration comes here
+    --         -- or leave it empty to use the default settings
+    --         style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+    --         transparent = true, -- Enable this to disable setting the background color
+    --         styles = {
+    --             sidebars = "transparent",
+    --             floats = "transparent",
+    --         },
+    --         dim_inactive = true
+    --     })
+    --end
+    --}
 
 
-use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
+    use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
 
-	use('theprimeagen/harpoon')
+    use('theprimeagen/harpoon')
 
-	use('tpope/vim-fugitive')
+    use('tpope/vim-fugitive')
 
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		requires = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},
-			{'williamboman/mason.nvim'},
-			{'williamboman/mason-lspconfig.nvim'},
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
 
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},
-			{'hrsh7th/cmp-buffer'},
-			{'hrsh7th/cmp-path'},
-			{'saadparwaiz1/cmp_luasnip'},
-			{'hrsh7th/cmp-nvim-lsp'},
-			{'hrsh7th/cmp-nvim-lua'},
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
 
-			-- Snippets
-			{'L3MON4D3/LuaSnip'},
-			{'rafamadriz/friendly-snippets'},
-		}
-	}
+            -- Snippets
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
+        }
+    }
 
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
@@ -96,7 +105,6 @@ use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
         },
     }
 
-
     use("github/copilot.vim")
 
     use {
@@ -104,12 +112,19 @@ use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
         config = function()
             require("auto-session").setup {
                 log_level = "error",
-                auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+                auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
             }
         end
     }
 
 
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function()
+            require("lualine").setup()
+        end
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
@@ -117,4 +132,3 @@ use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
         require('packer').sync()
     end
 end)
-
