@@ -29,7 +29,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer-full<CR>")
 vim.keymap.set("n", "<leader>fr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Lsp format
-vim.keymap.set("n", "<leader>fm", ":LspZeroFormat  \n")
+vim.keymap.set("n", "<leader>fm", ":LspZeroFormat \n")
 
 -- Remove bracket paragraph jumping from jump list
 vim.api.nvim_set_keymap("n", "}", [[:keepjumps normal! }<cr>]], { noremap = true })
@@ -61,5 +61,12 @@ vim.keymap.set("n", "<C-q>", "<C-^>")
 
 -- Pane movement
 vim.keymap.set("n", "<C-n>", "<C-w><C-w>")
-vim.keymap.set("n", "<leader>-h", "<C-w>h")
-vim.keymap.set("n", "<leader>-l", "<C-w>l")
+vim.keymap.set("n", "<leader>h", "<C-w>h")
+vim.keymap.set("n", "<leader>l", "<C-w>l")
+
+-- Disable continuation of comment on neew line
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
+-- Copilot keybinds
+vim.keymap.set("i", "<Right>", "copilot#Accept(\"<CR>\")", { expr = true, silent = true })

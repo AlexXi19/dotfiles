@@ -9,6 +9,7 @@ mkdir -p .oh-my-zsh
 rsync -a ~/.oh-my-zsh/custom/ .oh-my-zsh/custom/ --exclude=.git/
 
 # .zshrc
+cp ~/.profile .profile
 cp ~/.zshrc .zshrc
 
 # Tmux

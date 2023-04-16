@@ -7,10 +7,3 @@ vim.keymap.set('n', '<leader>sp', require('telescope.builtin').git_files, { desc
 vim.keymap.set('n', '<leader>qw', require('telescope.builtin').oldfiles, { desc = '[G]et [R]eferences' })
 vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = '[G]et [R]eferences' })
 vim.keymap.set('n', '<C-t>', require('telescope.builtin').lsp_workspace_symbols, {})
-
-
--- vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-
--- vim.keymap.set('n', '<leader>ps', function()
--- 	builtin.grep_string({ search = vim.fn.input("Grep > ")})
--- end)
