@@ -15,11 +15,11 @@ source /Users/alexxi/.gvm/scripts/gvm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
 # ALEX
 export PATH
 export PATH="/Users/alexxi/go/bin:$PATH"
 export PATH="/Users/alexxi/.local/scripts:$PATH"
+export PATH="/Users/alexxi/nvim-macos/bin:$PATH"
 export GOARCH="arm64"
 export GOOS="darwin"
 export GOPATH="/Users/alexxi/go"
