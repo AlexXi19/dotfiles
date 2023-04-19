@@ -1,4 +1,4 @@
--- vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "gh-dark"
 -- vim.cmd[[colorscheme tokyonight]]
 --
 -- require("tokyonight").setup({

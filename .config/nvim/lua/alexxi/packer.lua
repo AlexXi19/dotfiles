@@ -17,7 +17,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } },
         config = function()
             require('telescope').setup {
@@ -27,6 +27,8 @@ return require('packer').startup(function(use)
             }
         end,
     }
+
+    use 'wakatime/vim-wakatime'
 
     use({
         'projekt0n/github-nvim-theme', tag = 'v0.0.7',

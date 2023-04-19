@@ -11,7 +11,6 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'eslint',
-    'gopls',
     'rust_analyzer',
 })
 
@@ -23,16 +22,6 @@ lsp.set_preferences({
     cmp_capabilities = true,
     manage_nvim_cmp = true,
     call_servers = 'local',
-})
-
-lsp.format_on_save({
-    format_opts = {
-        timeout_ms = 10000,
-    },
-    servers = {
-        ['null-ls'] = { 'javascript', 'typescript', 'lua', 'json', 'yaml', 'markdown', 'css', 'scss', 'html', 'graphql',
-            'vue', 'svelte', 'typescriptreact' },
-    }
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -57,7 +46,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "gd", "gdzz")
 
     -- Lsp format
-    --vim.keymap.set("n", "<leader>fm", ":LspZeroFormat \n")
+    vim.keymap.set("n", "<leader>fm", ":LspZeroFormat \n")
 
 
     vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
@@ -67,7 +56,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set('n', '<leader>sp', require('telescope.builtin').git_files, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>qw', require('telescope.builtin').oldfiles, { desc = '[G]et [R]eferences' })
     vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = '[G]et [R]eferences' })
-    vim.keymap.set('n', '<C-t>', require('telescope.builtin').lsp_workspace_symbols, {})
+    vim.keymap.set('n', '<C-t>', require('telescope.builtin').lsp_dynamic_workspace_symbols, {})
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -89,47 +78,6 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
-
-local null_ls = require("null-ls")
-
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-null_ls.setup({
-    sources = {
-        null_ls.builtins.formatting.prettierd,
-        null_ls.builtins.formatting.stylua,
-    },
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({ bufnr = bufnr })
-                end,
-            })
-        end
-    end,
-})
-
-prettier.setup({
-    bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
-    filetypes = {
-        "css",
-        "graphql",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "less",
-        "markdown",
-        "scss",
-        "typescript",
-        "typescriptreact",
-        "yaml",
-    },
-})
-
 
 vim.diagnostic.config({
     virtual_text = true,
