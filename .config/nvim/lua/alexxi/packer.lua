@@ -15,7 +15,7 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
 
-    use ('wbthomason/packer.nvim')
+    use('wbthomason/packer.nvim')
 
     use {
         'nvim-telescope/telescope.nvim',
@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
         end,
     }
 
-    use ('wakatime/vim-wakatime')
+    use('wakatime/vim-wakatime')
 
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
 
@@ -39,7 +39,19 @@ return require('packer').startup(function(use)
 
     use('tveskag/nvim-blame-line')
 
-    use ('eandrju/cellular-automaton.nvim')
+    -- Lua
+    use {
+        "folke/zen-mode.nvim",
+        config = function()
+            require("zen-mode").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
+
+    use('eandrju/cellular-automaton.nvim')
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -72,7 +84,7 @@ return require('packer').startup(function(use)
 
     use('MunifTanjim/prettier.nvim')
 
-    
+
     use 'mbbill/undotree'
 
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
