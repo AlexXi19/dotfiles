@@ -7,3 +7,4 @@ vim.keymap.set('n', '<leader>sp', require('telescope.builtin').git_files, { desc
 vim.keymap.set('n', '<leader>qw', require('telescope.builtin').oldfiles, { desc = '[G]et [R]eferences' })
 vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = '[G]et [R]eferences' })
 vim.keymap.set('n', '<C-t>', require('telescope.builtin').lsp_workspace_symbols, {})
+vim.keymap.set('n', '<leader>gb', require('telescope.builtin').git_branches, {})

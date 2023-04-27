@@ -33,7 +33,7 @@ vim.api.nvim_set_keymap("n", "}", [[:keepjumps normal! }<cr>]], { noremap = true
 vim.api.nvim_set_keymap("n", "{", [[:keepjumps normal! {<cr>]], { noremap = true })
 
 -- Toggle NvimTree file directory
-vim.keymap.set("n", "<leader>fd", ":NvimTreeToggle \n")
+vim.keymap.set("n", "<leader>fd", ":NvimTreeFindFileToggle \n")
 
 -- Git branch diff
 vim.keymap.set("n", "<leader>gd", ":DiffviewOpen \n")
@@ -55,6 +55,8 @@ vim.keymap.set("n", "<C-z>", ":xa \n")
 vim.keymap.set("n", "<C-q>", "<C-^>")
 
 -- Save actions
+vim.keymap.set("n", "<C-i>", "<C-i>")
+vim.keymap.set("n", "<Tab>", "<Nop>")
 
 -- Pane movement
 vim.keymap.set("n", "<C-n>", "<C-w><C-w>")
@@ -67,3 +69,9 @@ vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
 -- Copilot keybinds
 vim.keymap.set("i", "<Right>", "copilot#Accept(\"<CR>\")", { expr = true, silent = true, replace_keycodes = false })
+
+-- MAKE IT RAIN
+vim.keymap.set("n", "<leader>kms", "<cmd>CellularAutomaton make_it_rain<CR>")
+
+-- Format
+vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)

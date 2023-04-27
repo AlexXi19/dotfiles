@@ -14,7 +14,8 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
+
+    use ('wbthomason/packer.nvim')
 
     use {
         'nvim-telescope/telescope.nvim',
@@ -28,44 +29,17 @@ return require('packer').startup(function(use)
         end,
     }
 
-    use 'wakatime/vim-wakatime'
-
-    use({
-        'projekt0n/github-nvim-theme', tag = 'v0.0.7',
-        -- or                            branch = '0.0.x'
-        config = function()
-            require('github-theme').setup({
-                -- ...
-            })
-
-            vim.cmd('colorscheme github_dark_default')
-        end
-    })
-
-    -- use { "catppuccin/nvim", as = "catppuccin" }
-
-    -- use { "folke/tokyonight.nvim",
-    -- config=function()
-    --     require("tokyonight").setup({
-    --         -- your configuration comes here
-    --         -- or leave it empty to use the default settings
-    --         style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-    --         transparent = true, -- Enable this to disable setting the background color
-    --         styles = {
-    --             sidebars = "transparent",
-    --             floats = "transparent",
-    --         },
-    --         dim_inactive = true
-    --     })
-    --end
-    --}
-
+    use ('wakatime/vim-wakatime')
 
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
 
     use('theprimeagen/harpoon')
 
     use('tpope/vim-fugitive')
+
+    use('tveskag/nvim-blame-line')
+
+    use ('eandrju/cellular-automaton.nvim')
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -93,9 +67,13 @@ return require('packer').startup(function(use)
     }
 
     use('neovim/nvim-lspconfig')
+
     use('jose-elias-alvarez/null-ls.nvim')
+
     use('MunifTanjim/prettier.nvim')
 
+    
+    use 'mbbill/undotree'
 
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
