@@ -78,6 +78,8 @@ return require('packer').startup(function(use)
         }
     }
 
+    use 'ishan9299/modus-theme-vim'
+
     use('neovim/nvim-lspconfig')
 
     use('jose-elias-alvarez/null-ls.nvim')
