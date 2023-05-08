@@ -73,5 +73,10 @@ vim.keymap.set("i", "<Right>", "copilot#Accept(\"<CR>\")", { expr = true, silent
 -- MAKE IT RAIN
 vim.keymap.set("n", "<leader>kms", "<cmd>CellularAutomaton make_it_rain<CR>")
 
+-- Git blame 
+vim.keymap.set("n", "<leader>gb", "<cmd>GitBlameToggle<CR>")
+
+
+
 -- Format
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
