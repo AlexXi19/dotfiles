@@ -14,6 +14,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "gd", "gdzz")
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
@@ -33,10 +34,10 @@ vim.api.nvim_set_keymap("n", "}", [[:keepjumps normal! }<cr>]], { noremap = true
 vim.api.nvim_set_keymap("n", "{", [[:keepjumps normal! {<cr>]], { noremap = true })
 
 -- Toggle NvimTree file directory
-vim.keymap.set("n", "<leader>fd", ":NvimTreeFindFileToggle \n")
+vim.keymap.set("n", "<leader>fd", "<cmd>NvimTreeFindFileToggle<CR>")
 
 -- Git branch diff
-vim.keymap.set("n", "<leader>gd", ":DiffviewOpen \n")
+vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>")
 vim.keymap.set("n", "z", "zz")
 
 -- Close/Save Commands
@@ -54,12 +55,11 @@ vim.keymap.set("n", "<C-z>", ":xa \n")
 -- Prev file
 vim.keymap.set("n", "<C-q>", "<C-^>")
 
--- Save actions
+-- Tab stuff
 vim.keymap.set("n", "<C-i>", "<C-i>")
 vim.keymap.set("n", "<Tab>", "<Nop>")
 
 -- Pane movement
-vim.keymap.set("n", "<C-n>", "<C-w><C-w>")
 vim.keymap.set("n", "<leader>h", "<C-w>h")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
 
@@ -73,8 +73,8 @@ vim.keymap.set("i", "<Right>", "copilot#Accept(\"<CR>\")", { expr = true, silent
 -- MAKE IT RAIN
 vim.keymap.set("n", "<leader>kms", "<cmd>CellularAutomaton make_it_rain<CR>")
 
--- Git blame 
-vim.keymap.set("n", "<leader>gb", "<cmd>GitBlameToggle<CR>")
+-- Git blame
+vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
 
 
 

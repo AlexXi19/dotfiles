@@ -1,4 +1,4 @@
-vim.cmd.colorscheme "256_noir"
+vim.cmd.colorscheme "paramount"
 -- vim.cmd[[colorscheme tokyonight]]
 --
 -- require("tokyonight").setup({

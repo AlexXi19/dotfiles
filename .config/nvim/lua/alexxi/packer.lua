@@ -14,7 +14,6 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-
     use('wbthomason/packer.nvim')
 
     use {
@@ -25,49 +24,34 @@ return require('packer').startup(function(use)
                 defaults = {
                     file_ignore_patterns = { "node_modules/*", ".git/*", "build/*", "dist/*" },
                 },
+                pickers = {
+                    oldfiles = {
+                        cwd_only = true,
+                    }
+                },
             }
         end,
     }
 
-    use('wakatime/vim-wakatime')
 
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
 
-    use('theprimeagen/harpoon')
+    use 'wakatime/vim-wakatime'
 
-    use('tpope/vim-fugitive')
+    use 'theprimeagen/harpoon'
 
-    use('tveskag/nvim-blame-line')
+    use 'tpope/vim-fugitive'
 
-    -- use { 'tamton-aquib/zone.nvim',
-    --     config = function()
-    --         require('zone').setup {
-    --             style = "treadmill",
-    --             after = 30, -- Idle timeout
-    --             exclude_filetypes = { "TelescopePrompt", "NvimTree", "neo-tree", "dashboard", "lazy" },
-    --             -- More options to come later
-    --
-    --             treadmill = {
-    --                 direction = "left",
-    --                 headache = true,
-    --                 tick_time = 30, -- Lower, the faster
-    --                 -- Opts for Treadmill style
-    --             },
-    --             epilepsy = {
-    --                 stage = "aura", -- "aura" or "ictal"
-    --                 tick_time = 100,
-    --             },
-    --             dvd = {
-    --                 -- text = {"line1", "line2", "line3", "etc"}
-    --                 tick_time = 100,
-    --                 -- Opts for Dvd style
-    --             },
-    --             -- etc
-    --         }
-    --     end,
-    -- }
+    use 'gen740/SmoothCursor.nvim'
 
-    -- Lua
+    use 'lewis6991/gitsigns.nvim'
+
+    use 'm4xshen/autoclose.nvim'
+
+    use "rafamadriz/friendly-snippets"
+
+    use "nvim-treesitter/nvim-treesitter-context"
+
     use {
         "folke/zen-mode.nvim",
         config = function()

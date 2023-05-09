@@ -30,8 +30,6 @@ lsp.on_attach(function(client, bufnr)
 
     -- lsp.buffer_autoformat()
 
-    -- vim.keymap.set("n", "<C-i>", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<C-t>", vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
@@ -39,9 +37,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gd", "gdzz")
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-
 
     vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
