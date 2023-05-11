@@ -17,3 +17,12 @@ require('gitsigns').setup {
     current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
 }
 require('smoothcursor').setup()
+
+-- vim.api.nvim_command('autocmd BufEnter * lua vim.defer_fn(function() print("Connected to buffer " .. vim.fn.expand("%")) end, 1000)')
+
+-- Ts server does not connect to the buffer automatically, this is hack to start it manually on connecting to buffer
+
+
+
+-- vim.api.nvim_command('autocmd BufEnter * lua vim.defer_fn(function() vim.api.nvim_command("LspStart") end, 500)')
+

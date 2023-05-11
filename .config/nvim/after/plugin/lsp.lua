@@ -1,4 +1,6 @@
 local lsp = require("lsp-zero")
+local lspconfig = require('lspconfig')
+
 
 -- local event = "BufWritePre" -- or "BufWritePost"
 
@@ -6,7 +8,6 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
     'tsserver',
-    'eslint',
     'rust_analyzer',
 })
 
@@ -21,17 +22,6 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(client, bufnr)
-    if client.name == "eslint" then
-        vim.cmd.LspStop('eslint')
-        return
-    end
-
-    if client.name == "tsserver" then
-        vim.cmd.LspStart('tsserver')
-        return
-    end
-
-    -- lsp.buffer_autoformat()
 
     local opts = { buffer = bufnr, remap = false }
     vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
@@ -59,10 +49,11 @@ lsp.on_attach(function(client, bufnr)
     )
 end)
 
-require'lspconfig'.tsserver.setup{
-  filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
-  root_dir = function() return vim.loop.cwd() end
-}
+-- require 'lspconfig'.tsserver.setup {
+--     filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
+--     root_dir = function() return vim.loop.cwd() end,
+--     single_file_support = false,
+-- }
 
 vim.diagnostic.config({
     virtual_text = true,
@@ -72,8 +63,8 @@ vim.diagnostic.config({
     float = true,
 })
 
+
 -- Fix undefined global variable
 lsp.nvim_workspace()
 
 lsp.setup()
-
