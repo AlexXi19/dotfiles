@@ -1,6 +1,6 @@
 local lsp = require("lsp-zero")
 
-local event = "BufWritePre" -- or "BufWritePost"
+-- local event = "BufWritePre" -- or "BufWritePost"
 
 lsp.preset("recommended")
 
@@ -21,15 +21,19 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(client, bufnr)
-    local opts = { buffer = bufnr, remap = false }
-
     if client.name == "eslint" then
         vim.cmd.LspStop('eslint')
         return
     end
 
+    if client.name == "tsserver" then
+        vim.cmd.LspStart('tsserver')
+        return
+    end
+
     -- lsp.buffer_autoformat()
 
+    local opts = { buffer = bufnr, remap = false }
     vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
@@ -50,13 +54,15 @@ lsp.on_attach(function(client, bufnr)
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true
-    }
+            virtual_text = true
+        }
     )
-
-
 end)
 
+require'lspconfig'.tsserver.setup{
+  filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
+  root_dir = function() return vim.loop.cwd() end
+}
 
 vim.diagnostic.config({
     virtual_text = true,
@@ -70,3 +76,4 @@ vim.diagnostic.config({
 lsp.nvim_workspace()
 
 lsp.setup()
+

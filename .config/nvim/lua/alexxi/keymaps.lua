@@ -46,8 +46,6 @@ vim.api.nvim_create_user_command("X", "x", {})
 vim.api.nvim_create_user_command("Q", "q", {})
 vim.keymap.set("n", "<C-z>", ":xa \n")
 vim.keymap.set("n", "<C-c>", ":q \n")
-vim.keymap.set("n", "<C-x>", ":x \n")
-vim.keymap.set("n", "<C-s>", ":w \n")
 
 -- Exit
 vim.keymap.set("n", "<C-z>", ":xa \n")
@@ -76,7 +74,17 @@ vim.keymap.set("n", "<leader>kms", "<cmd>CellularAutomaton make_it_rain<CR>")
 -- Git blame
 vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
 
-
-
 -- Format
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
+
+-- Toggle Diagnostic
+local diagnostics_active = true
+vim.keymap.set('n', '<leader>di', function()
+  diagnostics_active = not diagnostics_active
+  if diagnostics_active then
+    vim.diagnostic.show()
+  else
+    vim.diagnostic.hide()
+  end
+end)
+
