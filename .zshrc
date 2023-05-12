@@ -49,6 +49,7 @@ alias python="python3.10"
 alias python3="python3.10"
 alias bst='ssh axi@172.18.16.101'
 alias pip='pip3'
+alias srvk8s='~/Desktop/CS/bash/srv80-kube.sh'
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 eval "$(thefuck --alias)"
@@ -66,3 +67,9 @@ export NVM_DIR="$HOME/.nvm"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/alexxi/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+
+## Art
+# cat ~/.local/scripts/computer.txt

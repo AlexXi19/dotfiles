@@ -17,6 +17,13 @@ require('gitsigns').setup {
     current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
 }
 require('smoothcursor').setup()
+require("autoclose").setup({
+   options = {
+      disable_when_touch = true,
+   },
+})
+
+
 
 -- vim.api.nvim_command('autocmd BufEnter * lua vim.defer_fn(function() print("Connected to buffer " .. vim.fn.expand("%")) end, 1000)')
 
