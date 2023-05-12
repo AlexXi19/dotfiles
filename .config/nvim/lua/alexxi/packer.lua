@@ -123,6 +123,7 @@ return require('packer').startup(function(use)
 
     use {
         'rmagatti/auto-session',
+        commit = '21033c6815f249a7839c3a85fc8a6b44d74925c9',
         config = function()
             require("auto-session").setup {
                 log_level = "error",
