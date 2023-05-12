@@ -8,7 +8,6 @@ vim.keymap.set("n", "J", "mzJ`z")
 
 -- Navigating with pages
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
-
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
@@ -80,11 +79,10 @@ vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
 -- Toggle Diagnostic
 local diagnostics_active = true
 vim.keymap.set('n', '<leader>di', function()
-  diagnostics_active = not diagnostics_active
-  if diagnostics_active then
-    vim.diagnostic.show()
-  else
-    vim.diagnostic.hide()
-  end
+    diagnostics_active = not diagnostics_active
+    if diagnostics_active then
+        vim.diagnostic.show()
+    else
+        vim.diagnostic.hide()
+    end
 end)
-

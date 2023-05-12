@@ -42,11 +42,34 @@ return require('packer').startup(function(use)
 
     use 'tpope/vim-fugitive'
 
-    use 'gen740/SmoothCursor.nvim'
+    use {
+        'gen740/SmoothCursor.nvim',
+        config = function()
+            require('smoothcursor').setup()
+        end
+    }
 
-    use 'lewis6991/gitsigns.nvim'
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup {
+                signcolumn = true,          -- Toggle with `:Gitsigns toggle_signs`
+                current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+            }
+        end
+    }
 
-    use 'm4xshen/autoclose.nvim'
+    use {
+        'm4xshen/autoclose.nvim',
+        config = function()
+            require("autoclose").setup({
+                options = {
+                    disable_when_touch = true,
+                },
+            })
+        end
+    }
+
 
     use "rafamadriz/friendly-snippets"
 
@@ -98,6 +121,8 @@ return require('packer').startup(function(use)
 
     use('MunifTanjim/prettier.nvim')
 
+    use 'nvim-lua/lsp-status.nvim'
+
 
     use 'mbbill/undotree'
 
@@ -114,6 +139,9 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-tree/nvim-tree.lua',
+        config = function()
+            require("nvim-tree").setup()
+        end,
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional, for file icons
         },
@@ -135,7 +163,14 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
         config = function()
-            require("lualine").setup()
+            require("lualine").setup {
+                sections = {
+                    lualine_x = {
+                        "require('lsp-status').status()",
+                        "filetype",
+                    },
+                },
+            }
         end
     }
 
