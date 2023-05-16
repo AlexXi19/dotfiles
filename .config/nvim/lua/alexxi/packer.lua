@@ -80,11 +80,7 @@ return require('packer').startup(function(use)
     use {
         "folke/zen-mode.nvim",
         config = function()
-            require("zen-mode").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
+            require("zen-mode").setup()
         end
     }
 
@@ -142,7 +138,18 @@ return require('packer').startup(function(use)
     use {
         'nvim-tree/nvim-tree.lua',
         config = function()
-            require("nvim-tree").setup()
+            require("nvim-tree").setup({
+                update_focused_file = {
+                    enable = true,
+                },
+                filters = {
+                    dotfiles = false,
+                    custom = { '^.git$' }
+                },
+                diagnostics = {
+                    enable = true,
+                },
+            })
         end,
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional, for file icons
