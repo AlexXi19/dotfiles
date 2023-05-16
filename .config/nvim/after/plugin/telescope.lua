@@ -13,4 +13,4 @@ vim.keymap.set('n', '<C-t>', require('telescope.builtin').lsp_workspace_symbols,
 vim.keymap.set('n', '<leader>gb', require('telescope.builtin').git_branches, {})
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>ts', require('telescope.builtin').builtin, {})
-vim.keymap.set('n', '<C-e>', require('telescope.builtin').oldfiles, {})
+-- vim.keymap.set('n', '<C-e>', require('telescope.builtin').oldfiles, {})
