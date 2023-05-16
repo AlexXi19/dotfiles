@@ -51,7 +51,7 @@ vim.keymap.set("n", "<C-c>", ":q \n")
 vim.keymap.set("n", "<C-z>", ":xa \n")
 
 -- Prev file
-vim.keymap.set("n", "<C-q>", "<C-^>")
+vim.keymap.set("n", "<C-q>", "<C-^>zz")
 
 -- Tab stuff
 vim.keymap.set("n", "<C-i>", "<C-i>")
@@ -77,9 +77,6 @@ vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
 -- Format
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
 
--- nnoremap <leader>mh <cmd>lua require('memento').toggle()<CR>
-vim.keymap.set("n", "<C-e>", "<cmd>lua require('recall').toggle()<CR>")
-
 -- Toggle Diagnostic
 local diagnostics_active = true
 vim.keymap.set('n', '<leader>di', function()
@@ -90,3 +87,5 @@ vim.keymap.set('n', '<leader>di', function()
         vim.diagnostic.hide()
     end
 end)
+
+vim.keymap.set("n", "<C-e>", "<cmd>lua require('recall').toggle()<CR>")

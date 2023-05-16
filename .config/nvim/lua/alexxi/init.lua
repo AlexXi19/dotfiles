@@ -6,8 +6,3 @@ require("alexxi.keymaps")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Leave only current window on startup
-vim.cmd([[
-    wincmd o
-]])
-

@@ -1,12 +1,12 @@
 # Applies the dot files in this repo, only applies shell scripts and neovim config
 
 # Bash scripts 
-# mkdir -p ~/.local/scripts
-# rsync -a .local/scripts/ ~/.local/scripts/
+mkdir -p ~/.local/scripts
+rsync -a .local/scripts/ ~/.local/scripts/
 
 # Themes and custom plugins
-# mkdir -p .oh-my-zsh
-# rsync -a .oh-my-zsh/custom/ ~/.oh-my-zsh/custom/ 
+mkdir -p .oh-my-zsh
+rsync -a .oh-my-zsh/custom/ ~/.oh-my-zsh/custom/ 
 
 # .zshrc
 # cp .zshrc ~/.zshrc

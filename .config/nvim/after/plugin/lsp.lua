@@ -20,6 +20,9 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ["<C-Space>"] = cmp.mapping.complete(),
 })
 
+lsp.setup_nvim_cmp({
+  mapping = cmp_mappings
+})
 
 lsp.set_preferences({
     suggest_lsp_servers = true,
@@ -30,11 +33,6 @@ lsp.set_preferences({
     manage_nvim_cmp = true,
     call_servers = 'local',
 })
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
-
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }

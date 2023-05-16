@@ -9,8 +9,8 @@ mkdir -p .oh-my-zsh
 rsync -a ~/.oh-my-zsh/custom/ .oh-my-zsh/custom/ --exclude=.git/
 
 # .zshrc
-cp ~/.profile .profile
-cp ~/.zshrc .zshrc
+# cp ~/.profile .profile
+# cp ~/.zshrc .zshrc
 
 # Tmux
 cp ~/.tmux.conf .tmux.conf
@@ -20,18 +20,16 @@ mkdir -p .config
 cd .config
 
 # Karabiner 
-mkdir -p karabiner
-rsync -a ~/.config/karabiner/ karabiner/ --exclude=automatic_backups/
+# mkdir -p karabiner
+# rsync -a ~/.config/karabiner/ karabiner/ --exclude=automatic_backups/
 
 # iTerm2 
-mkdir -p iTerm2
-rsync -a ~/.config/iTerm2-preference/ iTerm2/
+# mkdir -p iTerm2
+# rsync -a ~/.config/iTerm2-preference/ iTerm2/
 
 # Neovim 
 mkdir -p nvim 
 rsync -a ~/.config/nvim/ nvim/ --exclude=pack/
 
 # Gitignore 
-cp ~/.gitignore .gitignore
-
-
+# p ~/.gitignore .gitignore

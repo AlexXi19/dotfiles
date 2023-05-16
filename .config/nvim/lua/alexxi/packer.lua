@@ -33,9 +33,10 @@ return require('packer').startup(function(use)
         end,
     }
 
-    use "AlexXi19/recall.nvim"
 
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
+
+    use 'AlexXi19/recall.nvim'
 
     use 'wakatime/vim-wakatime'
 
@@ -59,8 +60,6 @@ return require('packer').startup(function(use)
             }
         end
     }
-
-    use "dstein64/vim-startuptime"
 
     use {
         'm4xshen/autoclose.nvim',
@@ -115,8 +114,6 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
         }
     }
-
-    use 'gaborvecsei/memento.nvim'
 
     use 'ishan9299/modus-theme-vim'
 
