@@ -84,6 +84,16 @@ return require('packer').startup(function(use)
         end
     })
 
+    use({
+        "utilyre/barbecue.nvim",
+        requires = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        config = function()
+            require("barbecue").setup()
+        end,
+    })
 
     use "rafamadriz/friendly-snippets"
 

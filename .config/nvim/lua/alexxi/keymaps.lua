@@ -9,12 +9,13 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- Navigating with pages
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("x", "<leader>p", [["_dP]])
+
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "gd", "gdzz")
 
+vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
@@ -33,8 +34,8 @@ vim.api.nvim_set_keymap("n", "}", [[:keepjumps normal! }<cr>]], { noremap = true
 vim.api.nvim_set_keymap("n", "{", [[:keepjumps normal! {<cr>]], { noremap = true })
 
 -- Toggle NvimTree file directory
-vim.keymap.set("n", "<leader>fd", "<cmd>NvimTreeFindFileToggle<CR>")
 vim.keymap.set("n", "<leader>p", "<cmd>NvimTreeFindFileToggle<CR>")
+vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFileToggle<CR>")
 
 -- Git branch diff
 vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>")
@@ -88,4 +89,5 @@ vim.keymap.set('n', '<leader>di', function()
     end
 end)
 
+-- Recall list
 vim.keymap.set("n", "<C-e>", "<cmd>lua require('recall').toggle()<CR>")
