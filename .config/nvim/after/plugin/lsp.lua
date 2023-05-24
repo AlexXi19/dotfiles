@@ -27,7 +27,7 @@ lsp.setup_nvim_cmp({
 lsp.set_preferences({
     suggest_lsp_servers = true,
     setup_servers_on_start = true,
-    set_lsp_keymaps = { omit = { 'gd', 'gr' } },
+    set_lsp_keymaps = { omit = { 'gd', 'gr', '<Tab>' } },
     configure_diagnostics = true,
     cmp_capabilities = true,
     manage_nvim_cmp = true,

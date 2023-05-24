@@ -54,10 +54,6 @@ vim.keymap.set("n", "<C-z>", ":xa \n")
 -- Prev file
 vim.keymap.set("n", "<C-q>", "<C-^>zz")
 
--- Tab stuff
-vim.keymap.set("n", "<C-i>", "<C-i>")
-vim.keymap.set("n", "<Tab>", "<Nop>")
-
 -- Pane movement
 vim.keymap.set("n", "<leader>h", "<C-w>h")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
