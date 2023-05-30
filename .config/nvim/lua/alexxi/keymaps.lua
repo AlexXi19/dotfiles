@@ -61,6 +61,10 @@ vim.keymap.set("n", "<C-z>", ":xa \n")
 -- Prev file
 vim.keymap.set("n", "<C-q>", "<C-^>zz")
 
+-- Navigate jump list
+vim.keymap.set("n", "<C-i>", "<C-i>zz")
+vim.keymap.set("n", "<C-o>", "<C-o>zz")
+
 -- Pane movement
 vim.keymap.set("n", "<leader>h", "<C-w>h")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
