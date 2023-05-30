@@ -41,6 +41,13 @@ vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFileToggle<CR>")
 vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>")
 vim.keymap.set("n", "z", "zz")
 
+-- Cursor movement
+-- vim.keymap.set("n", "K", "H", { noremap = true })
+-- vim.keymap.set("n", "J", "L")
+-- vim.keymap.set('n', 'F', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
+vim.keymap.set({"n", "v"}, "L", "$")
+vim.keymap.set({"n", "v"}, "H", "^")
+
 -- Close/Save Commands
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("X", "x", {})
