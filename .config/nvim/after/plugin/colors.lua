@@ -1,4 +1,4 @@
-vim.cmd.colorscheme "github_dark_high_contrast"
+vim.cmd.colorscheme "noirblaze"
 
 require("transparent").setup({
   extra_groups = { -- table/string: additional groups that should be cleared

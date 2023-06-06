@@ -30,8 +30,8 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer-full<CR>")
 vim.keymap.set("n", "<leader>fr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Remove bracket paragraph jumping from jump list
-vim.api.nvim_set_keymap("n", "}", [[:keepjumps normal! }<cr>]], { noremap = true })
-vim.api.nvim_set_keymap("n", "{", [[:keepjumps normal! {<cr>]], { noremap = true })
+vim.api.nvim_set_keymap("n", "}", [[:keepjumps normal! }<cr>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "{", [[:keepjumps normal! {<cr>]], { noremap = true, silent = true })
 
 -- Toggle NvimTree file directory
 vim.keymap.set("n", "<leader>p", "<cmd>NvimTreeFindFileToggle<CR>")
@@ -42,11 +42,12 @@ vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>")
 vim.keymap.set("n", "z", "zz")
 
 -- Cursor movement
--- vim.keymap.set("n", "K", "H", { noremap = true })
--- vim.keymap.set("n", "J", "L")
+vim.keymap.set("n", "<leader>k", "H", { noremap = true })
+vim.keymap.set("n", "<leader>j", "L", { noremap = true })
+vim.keymap.set("n", "<leader>m", "M", { noremap = true })
+vim.keymap.set({ "n", "v" }, "L", "$")
+vim.keymap.set({ "n", "v" }, "H", "^")
 -- vim.keymap.set('n', 'F', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
-vim.keymap.set({"n", "v"}, "L", "$")
-vim.keymap.set({"n", "v"}, "H", "^")
 
 -- Close/Save Commands
 vim.api.nvim_create_user_command("W", "w", {})
@@ -77,7 +78,7 @@ vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 vim.keymap.set("i", "<Right>", "copilot#Accept(\"<CR>\")", { expr = true, silent = true, replace_keycodes = false })
 
 -- MAKE IT RAIN
-vim.keymap.set("n", "<leader>kms", "<cmd>CellularAutomaton make_it_rain<CR>")
+vim.api.nvim_create_user_command("Kms", "CellularAutomaton make_it_rain", {})
 
 -- Git blame
 vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
