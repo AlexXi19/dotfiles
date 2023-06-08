@@ -45,6 +45,13 @@ return require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
 
     use {
+        'ggandor/leap.nvim',
+        config = function()
+            require('leap').add_default_mappings()
+        end
+    }
+
+    use {
         'gen740/SmoothCursor.nvim',
         config = function()
             require('smoothcursor').setup()
@@ -76,11 +83,7 @@ return require('packer').startup(function(use)
     use({
         'projekt0n/github-nvim-theme',
         config = function()
-            require('github-theme').setup({
-                -- ...
-            })
-
-            vim.cmd('colorscheme github_dark_high_contrast')
+            require('github-theme').setup()
         end
     })
 

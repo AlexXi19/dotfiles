@@ -20,6 +20,10 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
+-- Leap
+vim.keymap.set({ 'n', 'x', 'o' }, 'q', '<Plug>(leap-forward-to)')
+vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)')
+
 -- Toggle search highlighting
 vim.keymap.set("n", "<leader>/", ":set invhlsearch  \n")
 
@@ -42,11 +46,13 @@ vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>")
 vim.keymap.set("n", "z", "zz")
 
 -- Cursor movement
-vim.keymap.set("n", "<leader>k", "H", { noremap = true })
-vim.keymap.set("n", "<leader>j", "L", { noremap = true })
-vim.keymap.set("n", "<leader>m", "M", { noremap = true })
-vim.keymap.set({ "n", "v" }, "L", "$")
-vim.keymap.set({ "n", "v" }, "H", "^")
+vim.keymap.set({ "n", "v" }, "+", "_", { noremap = true })
+vim.keymap.set({ "n", "v" }, "_", "$", { noremap = true })
+-- vim.keymap.set("n", "<leader>k", "H", { noremap = true })
+-- vim.keymap.set("n", "<leader>j", "L", { noremap = true })
+-- vim.keymap.set("n", "<leader>m", "M", { noremap = true })
+-- vim.keymap.set({ "n", "v" }, "L", "$")
+-- vim.keymap.set({ "n", "v" }, "H", "^")
 -- vim.keymap.set('n', 'F', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
 
 -- Close/Save Commands
