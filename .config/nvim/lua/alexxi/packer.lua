@@ -68,16 +68,16 @@ return require('packer').startup(function(use)
         end
     }
 
-    use {
-        'm4xshen/autoclose.nvim',
-        config = function()
-            require("autoclose").setup({
-                options = {
-                    disable_when_touch = true,
-                },
-            })
-        end
-    }
+    -- use {
+    --     'm4xshen/autoclose.nvim',
+    --     config = function()
+    --         require("autoclose").setup({
+    --             options = {
+    --                 disable_when_touch = true,
+    --             },
+    --         })
+    --     end
+    -- }
 
     -- Or with configuration
     use({
@@ -86,6 +86,10 @@ return require('packer').startup(function(use)
             require('github-theme').setup()
         end
     })
+
+    use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
+        require('git-conflict').setup()
+    end }
 
     use({
         "utilyre/barbecue.nvim",
