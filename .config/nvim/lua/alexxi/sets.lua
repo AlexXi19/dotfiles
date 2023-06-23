@@ -19,6 +19,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
+vim.opt.guicursor = "" 
 
 vim.opt.scrolloff = 12
 vim.opt.signcolumn = "yes"
@@ -39,3 +40,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         virtual_text = true
     }
 )
+
+

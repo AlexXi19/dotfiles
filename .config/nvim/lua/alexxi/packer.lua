@@ -79,7 +79,6 @@ return require('packer').startup(function(use)
     --     end
     -- }
 
-    -- Or with configuration
     use({
         'projekt0n/github-nvim-theme',
         config = function()
