@@ -38,7 +38,6 @@ vim.api.nvim_set_keymap("n", "}", [[:keepjumps normal! }<cr>]], { noremap = true
 vim.api.nvim_set_keymap("n", "{", [[:keepjumps normal! {<cr>]], { noremap = true, silent = true })
 
 -- Toggle NvimTree file directory
-vim.keymap.set("n", "<leader>p", "<cmd>NvimTreeFindFileToggle<CR>")
 vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFileToggle<CR>")
 
 -- Git branch diff

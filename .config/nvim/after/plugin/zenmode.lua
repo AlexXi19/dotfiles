@@ -4,9 +4,15 @@ vim.keymap.set("n", "<leader>m", function()
             backdrop = 0.2,
             width = 0.9,
             height = 0.9,
-            options = { }
+            options = {
+
+            }
         },
         plugins = {
+            options = {
+                showcmd = truo
+                ,
+            },
             tmux = { enabled = true }, -- disables the tmux statusline
            kitty = {
               enabled = true,
@@ -15,6 +21,8 @@ vim.keymap.set("n", "<leader>m", function()
         },
        on_open = function(win)
             require("barbecue.ui").toggle()
+            -- Clear prev command output
+            print(" ")
         end,
         on_close = function(win)
             require("barbecue.ui").toggle()

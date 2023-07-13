@@ -29,6 +29,11 @@ return require('packer').startup(function(use)
                         cwd_only = true,
                     }
                 },
+                extensions = {
+                    bookmarks = {
+                        selected_browser = 'chrome',
+                    },
+                },
             }
         end,
     }
@@ -102,7 +107,7 @@ return require('packer').startup(function(use)
     })
 
     use "rafamadriz/friendly-snippets"
-m
+
     use "nvim-treesitter/nvim-treesitter-context"
 
     use {
@@ -148,7 +153,6 @@ m
     use('MunifTanjim/prettier.nvim')
 
     use 'nvim-lua/lsp-status.nvim'
-
 
     use 'mbbill/undotree'
 
@@ -210,6 +214,17 @@ m
             }
         end
     }
+
+    use {
+      'dhruvmanila/browser-bookmarks.nvim',
+      tag = '*',
+      requires = {
+        'nvim-telescope/telescope.nvim',
+      }
+    }
+
+    use "almo7aya/openingh.nvim"
+
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
