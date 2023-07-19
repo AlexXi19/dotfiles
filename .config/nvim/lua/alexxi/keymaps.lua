@@ -6,10 +6,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Navigating with pages
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
+-- Override scroll because the scroll options always get reset
+vim.keymap.set("n", "<C-d>", "15jzz")
+vim.keymap.set("n", "<C-u>", "15kzz")
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
@@ -82,6 +81,14 @@ vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 -- Copilot keybinds
 vim.keymap.set("i", "<Right>", "copilot#Accept(\"<CR>\")", { expr = true, silent = true, replace_keycodes = false })
 
+-- Line movement
+vim.keymap.set({"n", "v"}, "<Right>", "$")
+vim.keymap.set({"n", "v"}, "<Left>", "^")
+
+-- Undo and redo in insert mode
+vim.keymap.set("i", "<C-u>", "<cmd>:normal! u<CR>")
+vim.keymap.set("i", "<C-r>", "<cmd>:normal! <C-r><CR>")
+
 -- MAKE IT RAIN
 vim.api.nvim_create_user_command("Kms", "CellularAutomaton make_it_rain", {})
 
@@ -104,3 +111,5 @@ end)
 
 -- Recall list
 vim.keymap.set("n", "<C-e>", "<cmd>lua require('recall').toggle()<CR>")
+
+
