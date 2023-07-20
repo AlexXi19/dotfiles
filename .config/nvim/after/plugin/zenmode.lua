@@ -10,16 +10,15 @@ vim.keymap.set("n", "<leader>m", function()
         },
         plugins = {
             options = {
-                showcmd = truo
-                ,
+                showcmd = true,
             },
             tmux = { enabled = true }, -- disables the tmux statusline
-           kitty = {
-              enabled = true,
-              font = "+80", -- font size increment
+            kitty = {
+                enabled = true,
+                font = "+80", -- font size increment
             },
         },
-       on_open = function(win)
+        on_open = function(win)
             require("barbecue.ui").toggle()
             -- Clear prev command output
             print(" ")
@@ -33,4 +32,3 @@ vim.keymap.set("n", "<leader>m", function()
     vim.wo.number = true
     vim.wo.rnu = true
 end)
-

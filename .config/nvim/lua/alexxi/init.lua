@@ -1,9 +1,7 @@
-require("alexxi.packer")
+require("alexxi.lazy")
 require("alexxi.sets")
 require("alexxi.keymaps")
-
-COLORSCHEME_DIR=os.getenv("HOME") .. "/.cache/nvim/colorscheme.txt"
-
+require("alexxi.lazy")
 
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1

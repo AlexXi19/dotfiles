@@ -112,4 +112,5 @@ end)
 -- Recall list
 vim.keymap.set("n", "<C-e>", "<cmd>lua require('recall').toggle()<CR>")
 
-
+-- Undo tree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)

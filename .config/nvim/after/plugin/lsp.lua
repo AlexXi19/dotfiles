@@ -1,7 +1,6 @@
 local lsp = require("lsp-zero")
 local lspconfig = require('lspconfig')
 
-
 -- local event = "BufWritePre" -- or "BufWritePost"
 
 lsp.preset("recommended")
