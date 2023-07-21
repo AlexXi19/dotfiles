@@ -139,19 +139,14 @@ require("lazy").setup({
             }
         end
     },
-    {
-        'nvim-lualine/lualine.nvim',
-        config = function()
-            require("lualine").setup {
-                sections = {
-                    lualine_x = {
-                        "require('lsp-status').status()",
-                        "filetype",
-                    },
-                },
-            }
-        end
-    },
     'dhruvmanila/browser-bookmarks.nvim',
     'almo7aya/openingh.nvim',
+    {
+        "j-hui/fidget.nvim",
+        tag = "legacy",
+        event = "LspAttach",
+        opts = {
+            -- options
+        },
+    }
 })
