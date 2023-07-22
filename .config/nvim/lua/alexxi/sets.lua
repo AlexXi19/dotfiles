@@ -20,7 +20,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
-vim.opt.guicursor = "" 
+vim.opt.guicursor = { 'n:block,i:ver100' }
 
 vim.opt.scrolloff = 12
 vim.opt.signcolumn = "yes"

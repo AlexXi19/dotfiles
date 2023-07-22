@@ -18,15 +18,22 @@ require("lazy").setup({
         'nvim-treesitter/nvim-treesitter',
         build = ":TSUpdate",
     },
-    'AlexXi19/recall.nvim',
+    {
+        'AlexXi19/recall.nvim',
+        lazy = true,
+    },
     'wakatime/vim-wakatime',
-    'theprimeagen/harpoon',
-    'tpope/vim-fugitive',
+    {
+        'tpope/vim-fugitive',
+        lazy = true,
+    },
     {
         'ggandor/leap.nvim',
+        lazy = true,
     },
     {
         'lewis6991/gitsigns.nvim',
+        lazy = true,
         config = function()
             require('gitsigns').setup {
                 signcolumn = true,          -- Toggle with `:Gitsigns toggle_signs`
@@ -42,12 +49,14 @@ require("lazy").setup({
     },
     {
         'akinsho/git-conflict.nvim',
+        lazy = true,
         config = function()
             require('git-conflict').setup()
         end
     },
     {
         'utilyre/barbecue.nvim',
+        lazy = true,
         dependencies = {
             'SmiteshP/nvim-navic',
             'nvim-tree/nvim-web-devicons',
@@ -56,16 +65,23 @@ require("lazy").setup({
             require('barbecue').setup()
         end
     },
-    'SmiteshP/nvim-navic',
+    {
+        'SmiteshP/nvim-navic',
+        lazy = true,
+    },
     'rafamadriz/friendly-snippets',
     'nvim-treesitter/nvim-treesitter-context',
     {
         'folke/zen-mode.nvim',
+        lazy = true,
         config = function()
             require("zen-mode").setup()
         end
     },
-    'eandrju/cellular-automaton.nvim',
+    {
+        'eandrju/cellular-automaton.nvim',
+        lazy = true,
+    },
     {
         'VonHeikemen/lsp-zero.nvim',
         dependencies = {
@@ -74,7 +90,6 @@ require("lazy").setup({
             'neovim/nvim-lspconfig',
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
-            'MunifTanjim/prettier.nvim',
             -- Autocompletion
             'hrsh7th/nvim-cmp',
             'hrsh7th/cmp-buffer',
@@ -87,13 +102,25 @@ require("lazy").setup({
             'rafamadriz/friendly-snippets',
         },
     },
-    'ishan9299/modus-theme-vim',
+    {
+        'ishan9299/modus-theme-vim',
+        lazy = true,
+    },
     'neovim/nvim-lspconfig',
     'jose-elias-alvarez/null-ls.nvim',
-    'MunifTanjim/prettier.nvim',
-    'nvim-lua/lsp-status.nvim',
-    'mbbill/undotree',
-    { 'sindrets/diffview.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
+    {
+        'MunifTanjim/prettier.nvim',
+        lazy = true,
+    },
+    {
+        'mbbill/undotree',
+        lazy = true,
+    },
+    {
+        'sindrets/diffview.nvim',
+        lazy = true,
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
     {
         'xiyaowong/nvim-transparent',
         config = function()
@@ -107,6 +134,7 @@ require("lazy").setup({
     },
     {
         'numToStr/Comment.nvim',
+        lazy = false,
         config = function()
             require("Comment").setup()
         end
@@ -114,6 +142,10 @@ require("lazy").setup({
     {
         'nvim-tree/nvim-tree.lua',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
+        lazy = false,
+        keys = {
+            { "<C-b>", ":NvimTreeFindFileToggle<CR>", desc = "Toggle tree" },
+        },
         config = function()
             require('nvim-tree').setup({
                 update_focused_file = {
@@ -139,8 +171,24 @@ require("lazy").setup({
             }
         end
     },
-    'dhruvmanila/browser-bookmarks.nvim',
-    'almo7aya/openingh.nvim',
+    {
+        'dhruvmanila/browser-bookmarks.nvim',
+        lazy = true,
+        config = function()
+            local browser_bookmarks = require("browser_bookmarks")
+
+            -- Default browser bookmarks
+            local telescope = require("telescope")
+            telescope.load_extension('bookmarks')
+            browser_bookmarks.setup({
+                selected_browser = 'chrome',
+            })
+        end
+    },
+    {
+        'almo7aya/openingh.nvim',
+        lazy = true,
+    },
     {
         "j-hui/fidget.nvim",
         tag = "legacy",

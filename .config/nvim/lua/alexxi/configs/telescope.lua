@@ -1,14 +1,6 @@
 local actions = require("telescope.actions")
 local previewers = require("telescope.previewers")
-local telescope = require("telescope")
 local telescope_config = require("telescope.config")
-local browser_bookmarks = require("browser_bookmarks")
-
--- Default browser bookmarks
-telescope.load_extension('bookmarks')
-browser_bookmarks.setup({
-    selected_browser = 'chrome',
-})
 
 
 -- Do not preview files larger than 100kb

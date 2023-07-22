@@ -71,6 +71,3 @@ vim.diagnostic.config({
 lsp.nvim_workspace()
 
 lsp.setup()
-
-local lsp_status = require('lsp-status')
-lsp_status.register_progress()

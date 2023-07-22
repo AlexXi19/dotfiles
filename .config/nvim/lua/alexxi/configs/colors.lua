@@ -1,5 +1,3 @@
-require("barbecue.ui").toggle(true)
-
 local default_colorscheme = "github_dark_high_contrast"
 COLORSCHEME_DIR=os.getenv("HOME") .. "/.cache/nvim/colorscheme.txt"
 
