@@ -1,7 +1,4 @@
 local lsp = require("lsp-zero")
-local lspconfig = require('lspconfig')
-
--- local event = "BufWritePre" -- or "BufWritePost"
 
 lsp.preset("recommended")
 
@@ -54,10 +51,48 @@ lsp.on_attach(function(client, bufnr)
         }
     )
 
-    -- Pretter formatting for javascript/typescript
-    if client.name == "tsserver" then
-        vim.keymap.set("n", "<leader>fm", "<cmd>Prettier<CR>")
+    if client.name == "copilot" then
+        return
     end
+
+    -- Define format functions
+    local function format_fn()
+        if client.name == "tsserver" then
+            return vim.cmd("Prettier")
+        else
+            return vim.lsp.buf.format()
+        end
+    end
+
+    vim.keymap.set("n", "<leader>fm", format_fn)
+
+    -- Autoformatting on save but only if buffer has changed
+    local buffer_changed = false
+
+    function _G.set_buffer_changed()
+        buffer_changed = true
+    end
+
+    function _G.format_if_changed()
+        if buffer_changed then
+            buffer_changed = false
+            format_fn()
+        end
+    end
+
+    vim.cmd [[
+            augroup ChangeAutogroup
+                autocmd!
+                autocmd TextChanged,TextChangedI * lua set_buffer_changed()
+            augroup END
+        ]]
+
+    vim.cmd [[
+            augroup FormatAutogroup
+                autocmd!
+                autocmd BufWritePost *.js,*.rs,*.lua,*.py,*.go,*.c,*.cpp,*.java,*.ts,*.tsx,*.css,*.html,*.json,*.yaml,*.yml,*.md,*.graphql,*.vue,*.svelte lua format_if_changed()
+            augroup END
+        ]]
 end)
 
 vim.diagnostic.config({

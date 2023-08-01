@@ -20,7 +20,7 @@ require("lazy").setup({
     },
     {
         'AlexXi19/recall.nvim',
-        lazy = true,
+        lazy = false,
     },
     'wakatime/vim-wakatime',
     {
@@ -29,7 +29,7 @@ require("lazy").setup({
     },
     {
         'ggandor/leap.nvim',
-        lazy = true,
+        lazy = false,
     },
     {
         'lewis6991/gitsigns.nvim',
@@ -110,15 +110,15 @@ require("lazy").setup({
     'jose-elias-alvarez/null-ls.nvim',
     {
         'MunifTanjim/prettier.nvim',
-        lazy = true,
+        lazy = false,
     },
     {
         'mbbill/undotree',
-        lazy = true,
+        lazy = false,
     },
     {
         'sindrets/diffview.nvim',
-        lazy = true,
+        lazy = false,
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
