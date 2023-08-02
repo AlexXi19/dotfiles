@@ -33,7 +33,7 @@ require("lazy").setup({
     },
     {
         'lewis6991/gitsigns.nvim',
-        lazy = true,
+        lazy = false,
         config = function()
             require('gitsigns').setup {
                 signcolumn = true,          -- Toggle with `:Gitsigns toggle_signs`
@@ -152,7 +152,8 @@ require("lazy").setup({
                     enable = true,
                 },
                 filters = {
-                    dotfiles = true,
+                    dotfiles = false,
+                    git_ignored = false,
                     custom = { '^.git$' }
                 },
                 diagnostics = {
