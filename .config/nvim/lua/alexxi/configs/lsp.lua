@@ -92,7 +92,7 @@ lsp.on_attach(function(client, bufnr)
     vim.cmd [[
             augroup FormatAutogroup
                 autocmd!
-                autocmd BufWritePost *.js,*.rs,*.lua,*.py,*.go,*.c,*.cpp,*.java,*.ts,*.tsx,*.css,*.html,*.json,*.yaml,*.yml,*.md,*.graphql,*.vue,*.svelte lua format_if_changed()
+                autocmd BufWritePost *.js,*.rs,*.lua,*.py,*.go,*.c,*.cpp,*.java,*.ts,*.tsx,*.css,*.html,*.json,*.md,*.graphql,*.vue,*.svelte lua format_if_changed()
             augroup END
         ]]
 end)
