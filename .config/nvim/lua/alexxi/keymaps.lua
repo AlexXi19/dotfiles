@@ -7,8 +7,12 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Override scroll because the scroll options always get reset
-vim.keymap.set("n", "<C-d>", "15jzz")
-vim.keymap.set("n", "<C-u>", "15kzz")
+vim.keymap.set("n", "<C-d>", "20jzz")
+vim.keymap.set("n", "<C-u>", "20kzz")
+
+-- Key repeat scroll and center
+vim.keymap.set("n", "<Up>", "kzz")
+vim.keymap.set("n", "<Down>", "jzz")
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
