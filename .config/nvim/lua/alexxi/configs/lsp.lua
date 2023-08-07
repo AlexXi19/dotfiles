@@ -51,7 +51,7 @@ lsp.on_attach(function(client, bufnr)
         }
     )
 
-    local ignore_lst = { "copilot", "yamlls" }
+    local ignore_lst = { "copilot", "yamlls", "tailwindcss", "eslint" }
 
     if vim.tbl_contains(ignore_lst, client.name) then
         return
