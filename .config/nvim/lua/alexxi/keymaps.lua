@@ -93,8 +93,8 @@ vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 vim.keymap.set("i", "<Right>", "copilot#Accept(\"<CR>\")", { expr = true, silent = true, replace_keycodes = false })
 
 -- Line movement
-vim.keymap.set({"n", "v"}, "<Right>", "$")
-vim.keymap.set({"n", "v"}, "<Left>", "^")
+vim.keymap.set({ "n", "v" }, "<Right>", "$")
+vim.keymap.set({ "n", "v" }, "<Left>", "^")
 
 -- Undo and redo in insert mode
 vim.keymap.set("i", "<C-u>", "<cmd>:normal! u<CR>")
@@ -125,3 +125,6 @@ vim.keymap.set("n", "<C-e>", "<cmd>lua require('recall').toggle()<CR>")
 
 -- Undo tree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
+-- Code Action Menu
+vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>")

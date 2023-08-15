@@ -34,7 +34,6 @@ lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
     vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "gd", function()
         vim.lsp.buf.definition()
@@ -60,13 +59,15 @@ lsp.on_attach(function(client, bufnr)
     -- Define format functions
     local function format_fn()
         if client.name == "tsserver" then
-            return vim.cmd("Prettier")
+            vim.cmd("Prettier")
+            return
         else
-            return vim.lsp.buf.format()
+            vim.lsp.buf.format()
         end
+        fix_problems()
     end
 
-    vim.keymap.set("n", "<leader>fm", format_fn)
+    vim.keymap.set("n", "<leader>fm", function() format_fn() end)
 
     -- Autoformatting on save but only if buffer has changed
     local buffer_changed = false
@@ -96,6 +97,19 @@ lsp.on_attach(function(client, bufnr)
             augroup END
         ]]
 end)
+
+local allowed_actions = { "Fix all auto-fixable problems", "Organize Imports" }
+
+function fix_problems()
+    vim.lsp.buf.code_action({
+        apply = true,
+        filter = function(action)
+            return vim.tbl_contains(allowed_actions, action.title)
+        end,
+    })
+end
+
+-- @source https://gist.github.com/alextes/e6704e5376709d194d21f615f8542ccb
 
 vim.diagnostic.config({
     virtual_text = true,

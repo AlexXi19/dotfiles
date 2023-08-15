@@ -26,6 +26,9 @@ require("lazy").setup({
     {
         'tpope/vim-fugitive',
         lazy = true,
+        cmd = {
+            "Git",
+        }
     },
     {
         'ggandor/leap.nvim',
@@ -33,7 +36,12 @@ require("lazy").setup({
     },
     {
         'lewis6991/gitsigns.nvim',
-        lazy = false,
+        lazy = true,
+        cmd = {
+            'Gitsigns',
+            'Gitsigns toggle_signs',
+            'Gitsigns toggle_current_line_blame',
+        },
         config = function()
             require('gitsigns').setup {
                 signcolumn = true,          -- Toggle with `:Gitsigns toggle_signs`
@@ -46,6 +54,12 @@ require("lazy").setup({
         config = function()
             require('github-theme').setup()
         end
+    },
+    {
+        'weilbith/nvim-code-action-menu',
+        lazy = true,
+        cmd = 'CodeActionMenu',
+
     },
     {
         'akinsho/git-conflict.nvim',
@@ -110,15 +124,31 @@ require("lazy").setup({
     'jose-elias-alvarez/null-ls.nvim',
     {
         'MunifTanjim/prettier.nvim',
-        lazy = false,
+        lazy = true,
+        cmd = {
+            'Prettier',
+            'PrettierAsync',
+        },
     },
     {
         'mbbill/undotree',
-        lazy = false,
+        lazy = true,
+        cmd = {
+            'UndotreeToggle',
+        },
     },
     {
         'sindrets/diffview.nvim',
-        lazy = false,
+        lazy = true,
+        cmd = {
+            'DiffviewOpen',
+            'DiffviewClose',
+            'DiffviewToggleFiles',
+            'DiffviewFocusFiles',
+            'DiffviewRefresh',
+            'DiffviewToggleOption',
+            'DiffviewToggleFiles',
+        },
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
@@ -142,7 +172,15 @@ require("lazy").setup({
     {
         'nvim-tree/nvim-tree.lua',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        lazy = false,
+        lazy = true,
+        cmd = {
+            "NvimTreeToggle",
+            "NvimTreeOpen",
+            "NvimTreeClose",
+            "NvimTreeRefresh",
+            "NvimTreeFindFile",
+            "NvimTreeFindFileToggle",
+        },
         keys = {
             { "<C-b>", ":NvimTreeFindFileToggle<CR>", desc = "Toggle tree" },
         },
@@ -189,6 +227,11 @@ require("lazy").setup({
     {
         'almo7aya/openingh.nvim',
         lazy = true,
+        cmd = {
+            "OpenInGHRepo",
+            "OpenInGHFile",
+            "OpenInGHFileLines",
+        }
     },
     {
         "j-hui/fidget.nvim",
