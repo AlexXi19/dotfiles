@@ -1,4 +1,5 @@
-PROMPT=' %{$fg[white]%}%~%{$reset_color%} $(git_prompt_info)'
+PROMPT=' %{$fg[white]%}%~%{$reset_color%} $(git_prompt_info)
+ $(kube_ps1)'
 
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[white]%}git:(%{$fg_bold[white]%}"

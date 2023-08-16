@@ -10,7 +10,7 @@ rsync -a ~/.oh-my-zsh/custom/ .oh-my-zsh/custom/ --exclude=.git/
 
 # .zshrc
 # cp ~/.profile .profile
-# cp ~/.zshrc .zshrc
+cp ~/.zshrc .zshrc
 
 # Tmux
 cp ~/.tmux.conf .tmux.conf

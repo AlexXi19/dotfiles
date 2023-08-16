@@ -4,9 +4,10 @@ ZSH_THEME="alexxi"
 
 plugins=(
 	git
-        zsh-autosuggestions
-        vi-mode
-        #zsh-syntax-highlighting
+    zsh-autosuggestions
+    vi-mode
+    kube-ps1
+    #zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -17,18 +18,19 @@ source $ZSH/oh-my-zsh.sh
 
 # ALEX
 export PATH
-export PATH="/Users/alexxi/go/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
 export PATH="/Users/alexxi/.local/scripts:$PATH"
 export PATH="/Applications/CMake.app/Contents/bin:$PATH"
 export GOARCH="arm64"
 export GOOS="darwin"
-export GOPATH="/Users/alexxi/go"
+export GOPATH="/usr/local/go"
 unset GOBIN
 #export GOBIN="$GOPATH/bin"
 export LUA_PATH=""
 export LUA_PATH="$LUA_PATH;/Users/alexxi/.config/nvim/?/init.lua"
 export LUA_PATH="$LUA_PATH;/Users/alexxi/.config/nvim/?.lua"
 export LSCOLORS="exgxcxdxbxegedabagacad"
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/alexxi/pulumi-creds.json"
 
 bindkey -s ^f "tmux-sessionizer-full\n"
 KEYTIMEOUT=5
@@ -44,21 +46,19 @@ alias tl='tmux list-sessions'
 alias ts='tmux-switch-sessions'
 alias ll='ls -l -a'
 alias zshconfig="nvim ~/.zshrc"
-alias ide="nvim ." 
-alias python="python3.10"
-alias python3="python3.10"
-alias bst='ssh axi@172.18.16.101'
-alias pip='pip3'
-alias srvk8s='~/Desktop/CS/bash/srv80-kube.sh'
+alias watch-pods="watch -n 1 'kubectl get pods'"
+alias sieve-local="SIEVE_API_URL=http://localhost:8000 SIEVE_API_KEY=eLX5jWjEOK63ftyo85QVAjfACjaP-1K-Ah43Vlo28CI sieve"
+alias sieve-prod="SIEVE_API_URL=https://mango.sievedata.com SIEVE_API_KEY=1d1wDhbBGyQZXh2vjGJq7Chgr7aU00safFCClS-mZcE sieve"
+alias cat="bat"
 
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-eval "$(thefuck --alias)"
-#eval "$(starship init zsh)"
+ [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 export VI_MODE_SET_CURSOR=true
+export KUBE_PS1_SYMBOL_ENABLE=false
+export KUBE_PS1_PREFIX=""
+export KUBE_PS1_SUFFIX=""
 
-# source <(kubectl completion zsh)  # set up autocomplete in zsh into the current shell
-# echo '[[ $commands[kubectl] ]] && source <(kubectl completion zsh)' >> ~/.zshrc # add autocomplete permanently to your zsh shell
+source <(kubectl completion zsh)  # set up autocomplete in zsh into the current shell
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -68,8 +68,40 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/Users/alexxi/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
+export CONDA_CHANGEPS1=0
+
+
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 
 ## Art
-# cat ~/.local/scripts/computer.txt
+/bin/cat ~/.local/scripts/computer.txt
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/alexxi/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/alexxi/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/alexxi/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/alexxi/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/alexxi/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alexxi/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/alexxi/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alexxi/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+source ~/.bashrc
