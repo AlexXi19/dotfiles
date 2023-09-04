@@ -22,6 +22,10 @@ require("lazy").setup({
         'AlexXi19/recall.nvim',
         lazy = false,
     },
+    {
+        'AlexXi19/share.nvim',
+        lazy = false,
+    },
     'wakatime/vim-wakatime',
     {
         'tpope/vim-fugitive',
@@ -88,9 +92,6 @@ require("lazy").setup({
     {
         'folke/zen-mode.nvim',
         lazy = true,
-        config = function()
-            require("zen-mode").setup()
-        end
     },
     {
         'eandrju/cellular-automaton.nvim',

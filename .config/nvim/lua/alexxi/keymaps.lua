@@ -128,3 +128,7 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- Code Action Menu
 vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>")
+
+-- Share
+vim.keymap.set("n", "<leader>sn", "<cmd>SnippetShare<CR>")
+vim.keymap.set("v", "<leader>sn", ":SnippetShare<CR>")
