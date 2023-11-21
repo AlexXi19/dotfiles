@@ -1,5 +1,26 @@
 local lsp = require("lsp-zero")
 
+local prettier = require("prettier")
+
+prettier.setup({
+    bin = 'prettierd',
+    filetypes = {
+        "css",
+        "graphql",
+        "html",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "less",
+        "markdown",
+        "scss",
+        "typescript",
+        "typescriptreact",
+        "yaml",
+    },
+})
+
+
 lsp.preset("recommended")
 
 lsp.ensure_installed({
@@ -93,7 +114,7 @@ lsp.on_attach(function(client, bufnr)
     vim.cmd [[
             augroup FormatAutogroup
                 autocmd!
-                autocmd BufWritePost *.js,*.rs,*.lua,*.py,*.go,*.c,*.cpp,*.java,*.ts,*.tsx,*.css,*.html,*.json,*.md,*.graphql,*.vue,*.svelte lua format_if_changed()
+                autocmd BufWritePost *.js,*.rs,*.lua,*.py,*.go,*.c,*.cpp,*.java,*.ts,*.mts,*.tsx,*.css,*.html,*.json,*.md,*.graphql,*.vue,*.svelte lua format_if_changed()
             augroup END
         ]]
 end)
