@@ -88,7 +88,7 @@ require("lazy").setup({
         lazy = true,
     },
     'rafamadriz/friendly-snippets',
-    'nvim-treesitter/nvim-treesitter-context',
+    -- 'nvim-treesitter/nvim-treesitter-context',
     {
         'folke/zen-mode.nvim',
         lazy = true,
