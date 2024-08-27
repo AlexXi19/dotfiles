@@ -69,7 +69,14 @@ vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("X", "x", {})
 vim.api.nvim_create_user_command("Q", "q", {})
 vim.keymap.set("n", "<C-z>", ":xa \n")
-vim.keymap.set("n", "<C-c>", ":q \n")
+vim.keymap.set("n", "<C-c>", function()
+    if vim.fn.tabpagenr('$') == 1 then
+        vim.cmd('q')
+    else
+        vim.cmd('tabclose')
+    end
+end)
+
 
 -- Exit
 vim.keymap.set("n", "<C-z>", ":xa \n")
