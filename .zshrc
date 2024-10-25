@@ -237,5 +237,4 @@ Please include a semantic commit prefix (feat, chore, docs, style, refactor, per
     done
 }
 
-
-
+source ~/secrets.sh

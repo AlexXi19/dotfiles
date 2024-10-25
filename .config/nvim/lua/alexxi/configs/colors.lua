@@ -72,3 +72,5 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   end,
 })
 
+
+require('avante_lib').load()

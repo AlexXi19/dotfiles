@@ -202,6 +202,14 @@ require("lazy").setup({
         end
     },
     'github/copilot.vim',
+    -- {
+    --     "zbirenbaum/copilot.lua",
+    --     cmd = "Copilot",
+    --     event = "InsertEnter",
+    --     config = function()
+    --         require("copilot").setup({})
+    --     end,
+    -- },
     {
         'rmagatti/auto-session',
         config = function()

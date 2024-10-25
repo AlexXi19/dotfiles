@@ -7,6 +7,9 @@ require("alexxi.lazy")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- @source: https://github.com/yetone/avante.nvim
+vim.opt.laststatus = 3
+
 local function load_configs()
     local configs_path = vim.fn.stdpath('config') .. '/lua/alexxi/configs/*.lua'
     local files = vim.fn.glob(configs_path, false, true)
