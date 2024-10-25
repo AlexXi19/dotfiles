@@ -23,6 +23,7 @@ export PATH="/Users/alexxi/Library/Python/3.9/bin:$PATH"
 export GOARCH="arm64"
 export GOOS="darwin"
 export GOPATH="/Users/alexxi/go"
+export GOROOT=/usr/local/opt/go/libexec
 unset GOBIN
 #export GOBIN="$GOPATH/bin"
 export LUA_PATH=""
@@ -36,7 +37,6 @@ KEYTIMEOUT=5
 
 alias k="kubectl"
 alias h='history'
-alias envd="~/Desktop/CS/envd/bin/envd"
 alias l="ls -CF"
 alias t='tmux attach || tmux new-session'
 alias ta="tmux attach -t"
@@ -46,6 +46,16 @@ alias tl='tmux list-sessions'
 alias ts='tmux-switch-sessions'
 alias ll='ls -l -a'
 alias zshconfig="nvim ~/.zshrc"
+alias nvim='/Users/alexxi/bin/nvim-macos-arm64/bin/nvim'
+
+function gs {
+    if [ $# -eq 0 ]; then
+        git status
+    else
+        git switch "$1"
+    fi
+}
+
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
@@ -130,6 +140,11 @@ kforward() {
             local_port=9999
             container_port=8080
             ;;
+        recommendation)
+            label="app=flow-recommendation-backend"
+            local_port=8000
+            container_port=8000
+            ;;
         *)
             echo "Error: Invalid type. Use 'worker' or 'node'."
             return 1
@@ -160,10 +175,7 @@ gcommit() {
     # Function to generate commit message
     generate_commit_message() {
         git diff --cached | llm "
-Below is a diff of all staged changes, coming from the command:
-\`\`\`
-git diff --cached
-\`\`\`
+Below is a diff of all staged changes, coming from the command: git diff --cached
 Please include a semantic commit prefix (feat, chore, docs, style, refactor, perf, test, fix, release) and generate a concise, one-line commit message for these changes.
 "
     }
@@ -224,4 +236,6 @@ Please include a semantic commit prefix (feat, chore, docs, style, refactor, per
         esac
     done
 }
+
+
 

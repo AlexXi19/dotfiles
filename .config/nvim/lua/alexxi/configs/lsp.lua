@@ -24,8 +24,7 @@ prettier.setup({
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-    'tsserver',
-    'rust_analyzer',
+    'ts_ls',
 })
 
 local cmp = require('cmp')
