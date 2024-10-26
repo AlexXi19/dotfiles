@@ -78,7 +78,7 @@ lsp.on_attach(function(client, bufnr)
 
     -- Define format functions
     local function format_fn()
-        if client.name == "tsserver" then
+        if client.name == "ts_ls" then
             vim.cmd("Prettier")
             return
         else
@@ -203,7 +203,7 @@ avante.setup {
     },
     behaviour = {
         auto_set_keymaps = false,
-        auto_apply_diff_after_generation = true,
+        auto_apply_diff_after_generation = false,
         support_paste_from_clipboard = false,
     },
     mappings = {
@@ -276,3 +276,54 @@ avante.setup {
         list_opener = "copen",
     },
 }
+
+require("chatgpt").setup({
+    -- this config assumes you have OPENAI_API_KEY environment variable set
+    openai_params = {
+        -- NOTE: model can be a function returning the model name
+        -- this is useful if you want to change the model on the fly
+        -- using commands
+        -- Example:
+        -- model = function()
+        --     if some_condition() then
+        --         return "gpt-4-1106-preview"
+        --     else
+        --         return "gpt-3.5-turbo"
+        --     end
+        -- end,
+        model = "gpt-4o",
+        frequency_penalty = 0,
+        presence_penalty = 0,
+        max_tokens = 4095,
+        temperature = 0.2,
+        top_p = 0.1,
+        n = 1,
+    },
+    chat = {
+        keymaps = {
+            close = "<C-c>",
+            close_n = "<Esc>",
+            yank_last = "<C-y>",
+            yank_last_code = "<C-k>",
+            scroll_up = "<C-u>",
+            scroll_down = "<C-d>",
+            new_session = "<C-n>",
+            cycle_windows = "<Tab>",
+            cycle_modes = "<C-f>",
+            next_message = "<C-j>",
+            prev_message = "<C-k>",
+            select_session = "<CR>",
+            rename_session = "r",
+            delete_session = "d",
+            draft_message = "<C-r>",
+            edit_message = "e",
+            delete_message = "d",
+            toggle_settings = "<C-o>",
+            toggle_sessions = "<C-p>",
+            toggle_help = "<C-h>",
+            toggle_message_role = "<C-r>",
+            toggle_system_role_open = "<C-s>",
+            stop_generating = "<C-x>",
+        },
+    }
+})

@@ -139,7 +139,10 @@ vim.keymap.set("n", "<leader>sn", "<cmd>SnippetShare<CR>")
 vim.keymap.set("v", "<leader>sn", ":SnippetShare<CR>")
 
 -- Avante
-vim.keymap.set({ "n", "v" }, "aa", "<cmd>AvanteAsk<CR>")
-vim.keymap.set({ "n", "v" }, "ae", "<cmd>AvanteEdit<CR>")
-vim.keymap.set({ "n", "v" }, "ar", "<cmd>AvanteRefresh<CR>")
-vim.keymap.set({ "n", "v" }, "ac", "<cmd>AvanteChat<CR>")
+vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>AvanteAsk<CR>")
+vim.keymap.set({ "n", "v" }, "<leader>ae", "<cmd>AvanteEdit<CR>")
+vim.keymap.set({ "n", "v" }, "<leader>ar", "<cmd>AvanteRefresh<CR>")
+vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>AvanteChat<CR>")
+
+-- ChatGPT
+vim.keymap.set("n", "<leader>ad", "<cmd>ChatGPT<CR>")

@@ -60,7 +60,7 @@ require("lazy").setup({
         end
     },
     {
-        'weilbith/nvim-code-action-menu',
+        'AlexXi19/nvim-code-action-menu',
         lazy = true,
         cmd = 'CodeActionMenu',
 
@@ -295,5 +295,18 @@ require("lazy").setup({
                 ft = { "markdown", "Avante" },
             },
         },
+    },
+    {
+        "jackMort/ChatGPT.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("chatgpt").setup()
+        end,
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "folke/trouble.nvim", -- optional
+            "nvim-telescope/telescope.nvim"
+        }
     }
 })
