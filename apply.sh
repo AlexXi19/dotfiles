@@ -18,3 +18,7 @@ cp .tmux.conf ~/.tmux.conf
 # Neovim
 mkdir -p ~/.config/nvim
 cp -r ./.config/nvim/ ~/.config/nvim/ 
+
+# Ghostty
+mkdir -p ~/.config/ghostty
+cp -r ./.config/ghostty/ ~/.config/ghostty/

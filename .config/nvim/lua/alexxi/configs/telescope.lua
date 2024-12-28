@@ -21,12 +21,12 @@ end
 -- Find files: Falling back to find_files if git_files can't find a .git directory
 local find_files = function()
     local opts = {}
-    -- vim.fn.system('git rev-parse --is-inside-work-tree')
-    -- if vim.v.shell_error == 0 then
-    --   require"telescope.builtin".git_files(opts)
-    -- else
-    --   require"telescope.builtin".find_files(opts)
-    -- end
+    vim.fn.system('git rev-parse --is-inside-work-tree')
+    if vim.v.shell_error == 0 then
+        require "telescope.builtin".git_files(opts)
+    else
+        require "telescope.builtin".find_files(opts)
+    end
 
     require "telescope.builtin".find_files(opts)
 end
@@ -68,7 +68,8 @@ require('telescope').setup {
 }
 
 -- Keymaps
-vim.keymap.set('n', '<C-p>', find_files)
+vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files)
+vim.keymap.set('n', '<C-S-p>', require('telescope.builtin').git_files)
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<C-G>', function() require('telescope.builtin').live_grep({ additional_args = { "-j1" } }) end,

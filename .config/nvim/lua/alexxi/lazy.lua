@@ -308,5 +308,10 @@ require("lazy").setup({
             "folke/trouble.nvim", -- optional
             "nvim-telescope/telescope.nvim"
         }
-    }
+    },
+    -- {
+    --     "pmizio/typescript-tools.nvim",
+    --     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    --     opts = {},
+    -- }
 })

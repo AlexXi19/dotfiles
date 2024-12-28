@@ -20,7 +20,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
-vim.opt.guicursor = { 'n:block,i:ver100' }
+vim.opt.guicursor = { 'n:block,i:block' }
 
 vim.opt.scrolloff = 12
 vim.opt.signcolumn = "yes"
@@ -32,8 +32,8 @@ vim.opt.colorcolumn = "0"
 vim.opt.scroll = 10
 
 vim.diagnostic.config({
-  virtual_text = true,
-  signs=true,
+    virtual_text = true,
+    signs = true,
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -41,5 +41,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         virtual_text = true
     }
 )
-
-

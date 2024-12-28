@@ -23,10 +23,6 @@ prettier.setup({
 
 lsp.preset("recommended")
 
-lsp.ensure_installed({
-    'ts_ls',
-})
-
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -38,6 +34,23 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings
+})
+
+local allowed_actions = { "Fix all auto-fixable problems", "Organize Imports" }
+
+local function fix_problems()
+    vim.lsp.buf.code_action({
+        apply = true,
+        filter = function(action)
+            return vim.tbl_contains(allowed_actions, action.title)
+        end,
+    })
+end
+
+lsp.configure('ts_ls', {
+    flags = {
+        debounce_text_changes = 200,
+    },
 })
 
 lsp.set_preferences({
@@ -55,6 +68,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>df", vim.diagnostic.open_float, opts)
     vim.keymap.set("n", "gd", function()
         vim.lsp.buf.definition()
         vim.cmd("normal! zz")
@@ -70,7 +84,7 @@ lsp.on_attach(function(client, bufnr)
         }
     )
 
-    local ignore_lst = { "copilot", "yamlls", "tailwindcss", "eslint" }
+    local ignore_lst = { "GitHub Copilot", "yamlls", "tailwindcss", "eslint" }
 
     if vim.tbl_contains(ignore_lst, client.name) then
         return
@@ -117,17 +131,6 @@ lsp.on_attach(function(client, bufnr)
             augroup END
         ]]
 end)
-
-local allowed_actions = { "Fix all auto-fixable problems", "Organize Imports" }
-
-function fix_problems()
-    vim.lsp.buf.code_action({
-        apply = true,
-        filter = function(action)
-            return vim.tbl_contains(allowed_actions, action.title)
-        end,
-    })
-end
 
 -- @source https://gist.github.com/alextes/e6704e5376709d194d21f615f8542ccb
 
@@ -193,13 +196,30 @@ lsp.setup()
 
 avante.setup {
     ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-    provider = "claude",                  -- Recommend using Claude
-    auto_suggestions_provider = "claude", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+    provider = "openai",                  -- Recommend using Claude
+    auto_suggestions_provider = "claude", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilotA
     claude = {
         endpoint = "https://api.anthropic.com",
         model = "claude-3-5-sonnet-20241022",
         temperature = 0,
         max_tokens = 4096,
+    },
+    openai = {
+        endpoint = "https://openrouter.ai/api/v1",
+        -- model = "anthropic/claude-3.5-sonnet",
+        model = "anthropic/claude-3.5-sonnet",
+        api_key_name = "OPENROUTER_API_KEY",
+        temperature = 0.6,
+        max_tokens = 8000,
+    },
+    vendors = {
+        openrouter = {
+            -- __inherited_from = "openai",
+            api_key_name = "OPENROUTER_API_KEY",
+            endpoint = "https://openrouter.ai/api/v1",
+            model = "anthropic/claude-3.5-sonnet",
+            max_tokens = 4096,
+        },
     },
     behaviour = {
         auto_set_keymaps = false,

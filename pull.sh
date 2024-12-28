@@ -32,5 +32,10 @@ rm -rf nvim
 mkdir -p nvim 
 rsync -a ~/.config/nvim/ nvim/ --exclude=pack/
 
+# Ghostty
+rm -rf ghostty
+mkdir -p ghostty
+rsync -a ~/.config/ghostty/ ghostty/
+
 # Gitignore 
 # p ~/.gitignore .gitignore

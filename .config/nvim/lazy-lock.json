@@ -46,6 +46,7 @@
   "share.nvim": { "branch": "main", "commit": "b76b9eff6c8d0f9e5d94f3994414cf2d8fc232b3" },
   "telescope.nvim": { "branch": "master", "commit": "df534c3042572fb958586facd02841e10186707c" },
   "trouble.nvim": { "branch": "main", "commit": "2f3b537f2207ce32f4459f9d56746ee013b5e01b" },
+  "typescript-tools.nvim": { "branch": "master", "commit": "f8c2e0b36b651c85f52ad5c5373ff8b07adc15a7" },
   "undotree": { "branch": "master", "commit": "78b5241191852ffa9bb5da5ff2ee033160798c3b" },
   "vim-fugitive": { "branch": "master", "commit": "d4877e54cef67f5af4f950935b1ade19ed6b7370" },
   "vim-wakatime": { "branch": "master", "commit": "f699e30ca1ba0c7f316847316fd0ba19d3ee51c1" },

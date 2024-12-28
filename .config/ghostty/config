@@ -1,0 +1,7 @@
+background = 000000
+# You can preview the config here
+ 
+window-padding-x = 0
+window-padding-y = 0
+macos-non-native-fullscreen = false
+macos-titlebar-style = hidden

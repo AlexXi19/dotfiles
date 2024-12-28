@@ -4,10 +4,10 @@ ZSH_THEME="alexxi"
 
 plugins=(
 	git
-        zsh-autosuggestions
-        vi-mode
-          kube-ps1
-        #zsh-syntax-highlighting
+    zsh-autosuggestions
+    # vi-mode
+    kube-ps1
+    # zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
