@@ -146,3 +146,9 @@ vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>AvanteChat<CR>")
 
 -- ChatGPT
 vim.keymap.set("n", "<leader>ad", "<cmd>ChatGPT<CR>")
+
+-- Map Option + Delete to delete a word backward
+if vim.fn.has("mac") == 1 then
+    vim.api.nvim_set_keymap('n', '<Esc><BS>', 'db', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('i', '<Esc><BS>', '<C-o>db', { noremap = true, silent = true })
+end

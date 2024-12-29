@@ -5,7 +5,7 @@ ZSH_THEME="alexxi"
 plugins=(
 	git
     zsh-autosuggestions
-    # vi-mode
+    vi-mode
     kube-ps1
     # zsh-syntax-highlighting
 )
@@ -33,6 +33,10 @@ export LUA_PATH="$LUA_PATH;/Users/alexxi/Desktop/CS/recall.nvim"
 export LSCOLORS="exgxcxdxbxegedabagacad"
 
 bindkey -s ^f "tmux-sessionizer-full\n"
+bindkey '\e\x7F' backward-kill-word
+bindkey '\ew' backward-kill-line
+
+
 KEYTIMEOUT=5
 
 alias k="kubectl"
