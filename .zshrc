@@ -17,6 +17,7 @@ source $ZSH/oh-my-zsh.sh
 # ALEX
 export PATH
 export PATH="/Users/alexxi/go/bin:$PATH"
+export PATH="/Users/alexxi/bin/nvim-macos-arm64/bin:$PATH"
 export PATH="/Users/alexxi/.local/scripts:$PATH"
 export PATH="/Applications/CMake.app/Contents/bin:$PATH"
 export PATH="/Users/alexxi/Library/Python/3.9/bin:$PATH"
@@ -36,7 +37,6 @@ bindkey -s ^f "tmux-sessionizer-full\n"
 bindkey '\e\x7F' backward-kill-word
 bindkey '\ew' backward-kill-line
 
-
 KEYTIMEOUT=5
 
 alias k="kubectl"
@@ -50,7 +50,6 @@ alias tl='tmux list-sessions'
 alias ts='tmux-switch-sessions'
 alias ll='ls -l -a'
 alias zshconfig="nvim ~/.zshrc"
-alias nvim='/Users/alexxi/bin/nvim-macos-arm64/bin/nvim'
 
 function gs {
     if [ $# -eq 0 ]; then
@@ -59,7 +58,6 @@ function gs {
         git switch "$1"
     fi
 }
-
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
@@ -78,32 +76,20 @@ export PATH="/Users/alexxi/.rd/bin:$PATH"
 
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
-
-## Art
-cat ~/.local/scripts/computer.txt
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/alexxi/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/alexxi/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/alexxi/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/alexxi/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-# bun completions
-[ -s "/Users/alexxi/.bun/_bun" ] && source "/Users/alexxi/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/alexxi/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/alexxi/miniforge3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/alexxi/miniforge3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/alexxi/miniforge3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
 
 [[ -s "/Users/alexxi/.gvm/scripts/gvm" ]] && source "/Users/alexxi/.gvm/scripts/gvm"
 
@@ -241,4 +227,7 @@ Please include a semantic commit prefix (feat, chore, docs, style, refactor, per
     done
 }
 
-source ~/secrets.sh
+source ~/.env
+
+kitty icat ~/.config/neofetch/bg.jpeg &>/dev/null
+neofetch

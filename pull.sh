@@ -37,5 +37,15 @@ rm -rf ghostty
 mkdir -p ghostty
 rsync -a ~/.config/ghostty/ ghostty/
 
+# Neofetch
+rm -rf neofetch
+mkdir -p neofetch
+rsync -a ~/.config/neofetch/ neofetch/
+
+# yazi
+rm -rf yazi
+mkdir -p yazi
+rsync -a ~/.config/yazi/ yazi/
+
 # Gitignore 
 # p ~/.gitignore .gitignore

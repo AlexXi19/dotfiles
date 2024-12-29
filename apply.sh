@@ -22,3 +22,11 @@ cp -r ./.config/nvim/ ~/.config/nvim/
 # Ghostty
 mkdir -p ~/.config/ghostty
 cp -r ./.config/ghostty/ ~/.config/ghostty/
+
+# Neofetch
+mkdir -p ~/.config/neofetch
+cp -r ./.config/neofetch/ ~/.config/neofetch/
+
+# yazi
+mkdir -p ~/.config/yazi
+cp -r ./.config/yazi/ ~/.config/yazi/

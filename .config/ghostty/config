@@ -1,11 +1,19 @@
+# theme = 3024 Night
+# theme = Github Dark
+# theme = Dark Pastel
+theme = Deep
 background = 000000
-# You can preview the config here
+font-family = Iosevka
+font-size = 20
  
 window-padding-x = 0
 window-padding-y = 0
+window-padding-balance = true
 macos-non-native-fullscreen = false
 macos-titlebar-style = hidden
 macos-option-as-alt = true
+
+mouse-hide-while-typing = true
 
 keybind = cmd+backspace=esc:w
 keybind = cmd+backspace=text:\x15
